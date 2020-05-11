@@ -1,0 +1,278 @@
+/* COLOR CODES:
+
+- VERDE INCHIS: #808000
+- GRI INCHIS (BG): #1a1a1a
+- GRI SI MAI INCHIS: #0f0f0f
+- ALB: #FFFFFF
+- GRI DESCHIS: #858585
+- ALT GRI DOAMNE AJUTA: #303030
+*/ 
+
+
+/* -------------------TOPNAV---------------*/
+.topnav {
+    background-color: #303030;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+.topnav a {
+    float: left;
+    color: 	white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size:em;
+    display:flex;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;  
+}
+.topnav a.active {
+    color: gray;
+   /* border: white; */
+    
+} 
+.topnav .login-container{
+    float: right; 
+    padding-top: 4px; 
+}
+/*---------------------TOPNAV END--------------*/
+.fancy-title{
+    color: white; 
+    font-size: 4em;
+    font-family: 'Roboto'; 
+    line-height: 90vh;
+    text-align: center;
+}
+span{
+  opacity: 0;
+  transition: all 1s ease;
+  transform: translateY(50px);
+  display: inline-block;
+  
+}
+span.fade{
+  opacity: 1;
+  transform: translateY(0px);
+}
+.slogan {
+    color: #858585;
+    position: relative;
+    overflow: visible;
+    width: auto; 
+    height: auto;
+    font-family: 'Roboto'; 
+    padding-left: 2.4em; 
+}
+/*--------------TITLE END--------------*/
+
+
+/*------------------------LEFT SIDE END-----------------------*/
+
+/*----------------------RIGHT SIDE----------------------------*/
+
+.meq-description{
+    color: #858585; 
+    position: absolute; 
+    width: 25%; 
+    top: 10em;
+    left:50%;
+    right: auto;
+    text-align: right;
+    padding-right: 50px;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    /*padding: 20px;*/
+}
+  .content .add-comment button{
+        cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, #808000, #808100);
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        margin-left: 0%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  }
+  /* Login */
+.footer-container button{
+    color: 	#FFFFFF;
+    font-family: 'Roboto', sans-serif; 
+    text-align: center; 
+    padding: 6px; 
+    text-decoration: none;
+    font-size: 17px;
+    border:none;
+    cursor:pointer;
+    margin-top: 3px;
+    margin-right:5px;
+    margin-bottom: 1 px;
+    background-color:#808000;
+    border-radius: 5px;
+    
+}
+  .topnav .login-container button{
+    
+    color: 	#FFFFFF;
+    font-family: 'Roboto', sans-serif; 
+    text-align: center; 
+    padding: 6px; 
+    text-decoration: none;
+    font-size: 17px;
+    border:none;
+    cursor:pointer;
+    margin-top: 3px;
+    margin-right:5px;
+    margin-bottom: 1 px;
+    background-color:#9ACD32;
+    border-radius: 5px;
+    
+      
+  }
+  .topnav .login-container button:hover{
+    background: #9ACD32;
+  }
+  
+  /* Side Bar*/
+  .sidenav {
+    width: 30%;
+    height: inherit;
+    background: #9ACD32;
+    overflow-x: hidden;
+    flex: 0 0 13% ;
+    border-top-right-radius: 10px;
+    
+    
+  }
+  .sidenav a {
+    padding: 6px 6px 6px 15px;
+    text-decoration: none;
+    font-size: 150%;
+    
+    color: black;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #064579;
+  }
+
+.sidenav h2 {
+    padding: 6px 8px 6px 20px;
+    text-decoration: none;
+    font-size: 150%;
+    color: black;
+    display: block;
+  }
+
+
+  body {
+    width: 100%; 
+    height: initial;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+  }
+  
+  .container { /*toate elementele */
+    text-align: center;
+  }
+
+  .center-container { /* content + sidebar*/
+    text-align: center;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+  }
+
+  .content { /* forumul */
+    padding: 20px; 
+    width: inherit; 
+    height: 100%; 
+    align-items: flex-start;
+  }
+
+  /*-----------------FOOTER--------------------------------------------------------------
+
+    .bottom-container{ footer
+    left: 0;
+    display: block;
+    width: 100%;   
+    align-items: flex-end;
+    background-color: #FFF8DC;
+    padding-bottom:; 
+    text-align:center;
+    color: #A0522D;
+    
+    
+  }*/
+
+.footer{
+    position: fixed;
+    border-top-left-radius: 3%;
+    left: 0%;
+    bottom: 0%; 
+    width: 100%;
+    background-color:#808000; 
+    color: white;
+    text-align: center;
+     
+}
+.question {
+    font-family: fantasy;
+    font-size: 17; 
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: inherit;
+    color:darkolivegreen;
+    text-align: left;
+}
+@media only screen and (max-width:1000px) {
+  /* For mobile phones: */
+  .content, .sidenav, .topnav, .footer {
+    width
+    :100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sidenav  {
+    font-size: 80%;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto; 
+  }
+  .center-container{
+      text-align: center;
+      font-size: 70%;
+    }
+}
+@media screen and (max-width: 1000px) {
+  .sidenav  {
+    font-size: 100%;
+    text-align: center;
+  }
+  .center-container{
+    flex-direction:column;
+  }
+  .content {
+    width: inherit;
+      font-size: 50%
+  }
+}
+@media screen and (max-width: 1000px) {
+    .topnav  {
+    margin: 0 auto; 
+    }
+}
