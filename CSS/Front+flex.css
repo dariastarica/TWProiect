@@ -8,13 +8,40 @@
 - ALT GRI DOAMNE AJUTA: #303030
 */ 
 
+body {
+  width: 100%; 
+  background-color: #303030;
+  height: initial;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; 
+  overflow-y: hidden; 
+}
+.main { /*toate elementele */
+  text-align: center;
+  margin: 0 0 0 0; 
+}
+.title-section { /*landing: title secion*/
+  text-align: center;
+  margin-top: 0;
+  background-color: #1a1a1a;
+}
+
+.content { /* forumul */
+  padding: 20px; 
+  width: inherit; 
+  height: 100%; 
+}
 
 /* -------------------TOPNAV---------------*/
 .topnav {
     background-color: #303030;
     overflow: hidden;
     text-align: center;
-
+    position: sticky; 
 }
 .topnav a {
     float: left;
@@ -32,18 +59,37 @@
 .topnav a.active {
     color: gray;
    /* border: white; */
-    
 } 
 .topnav .login-container{
     float: right; 
     padding-top: 4px; 
+}
+.topnav .login-container button{
+  color: 	#FFFFFF;
+  font-family: 'Roboto', sans-serif; 
+  text-align: center; 
+  padding: 6px; 
+  text-decoration: none;
+  font-size: 17px;
+  border:none;
+  cursor:pointer;
+  margin-top: 3px;
+  margin-right:5px;
+  margin-bottom: 1 px;
+  background-color:#9ACD32;
+  border-radius: 5px;
+
+}
+.topnav .login-container button:hover{
+  background: white;
+  color: black;
 }
 /*---------------------TOPNAV END--------------*/
 .fancy-title{
     color: white; 
     font-size: 4em;
     font-family: 'Roboto'; 
-    line-height: 90vh;
+    line-height: 100vh;
     text-align: center;
 }
 span{
@@ -51,7 +97,6 @@ span{
   transition: all 1s ease;
   transform: translateY(50px);
   display: inline-block;
-  
 }
 span.fade{
   opacity: 1;
@@ -67,12 +112,7 @@ span.fade{
     padding-left: 2.4em; 
 }
 /*--------------TITLE END--------------*/
-
-
-/*------------------------LEFT SIDE END-----------------------*/
-
-/*----------------------RIGHT SIDE----------------------------*/
-
+/*--------------SLOGAN------------------*/
 .meq-description{
     color: #858585; 
     position: absolute; 
@@ -86,21 +126,8 @@ span.fade{
     width: 100%;
     /*padding: 20px;*/
 }
-.content .add-comment button{
-  cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to right, #808000, #808100);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  font-family: 'Roboto', sans-serif;
-  margin-left: 0%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-}
+
+/*---------------SLOGAN END-------------*/
   /* Login */
 .footer-container button{
     color: 	#FFFFFF;
@@ -118,27 +145,7 @@ span.fade{
     border-radius: 5px;
     
 }
-  .topnav .login-container button{
-    
-    color: 	#FFFFFF;
-    font-family: 'Roboto', sans-serif; 
-    text-align: center; 
-    padding: 6px; 
-    text-decoration: none;
-    font-size: 17px;
-    border:none;
-    cursor:pointer;
-    margin-top: 3px;
-    margin-right:5px;
-    margin-bottom: 1 px;
-    background-color:#9ACD32;
-    border-radius: 5px;
-    
-      
-  }
-  .topnav .login-container button:hover{
-    background: #9ACD32;
-  }
+  
   
   /* Side Bar*/
   .sidenav {
@@ -173,35 +180,6 @@ span.fade{
   }
 
 
-  body {
-    width: 100%; 
-    height: initial;
-    margin-left: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden; 
-    overflow-y: hidden; 
-  }
-  
-  .container { /*toate elementele */
-    text-align: center;
-    
-  }
-
-  .center-container { /* content + sidebar*/
-    text-align: center;
-    background-color: #1a1a1a;
-    min-height: 100vh;
-  }
-
-  .content { /* forumul */
-    padding: 20px; 
-    width: inherit; 
-    height: 100%; 
-    align-items: flex-start;
-  }
 
   /*-----------------FOOTER--------------------------------------------------------------
 
