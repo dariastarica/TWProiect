@@ -30,10 +30,8 @@ body {
   background-color: #1a1a1a;
 }
 
-.content { /* forumul */
-  padding: 20px; 
-  width: inherit; 
-  height: 100%; 
+.second-section{
+  text-align: center;
 }
 
 /* -------------------TOPNAV---------------*/
@@ -87,9 +85,9 @@ body {
 /*---------------------TOPNAV END--------------*/
 .fancy-title{
     color: white; 
-    font-size: 4em;
-    font-family: 'Roboto'; 
-    line-height: 100vh;
+    font-size: 6em;
+    font-family: 'Ubuntu'; 
+    line-height: 90vh;
     text-align: center;
 }
 span{
@@ -104,12 +102,8 @@ span.fade{
 }
 .slogan {
     color: #858585;
-    position: relative;
-    overflow: visible;
-    width: auto; 
-    height: auto;
-    font-family: 'Roboto'; 
-    padding-left: 2.4em; 
+    font-size: 6em;
+    font-family: 'Roboto';
 }
 /*--------------TITLE END--------------*/
 /*--------------SLOGAN------------------*/
@@ -253,4 +247,9 @@ span.fade{
     .topnav  {
     margin: 0 auto; 
     }
+}
+@media screen and (max-width:400px){
+  .topnav .login-container{
+    float: center; 
+  }
 }
