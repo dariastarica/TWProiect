@@ -16,8 +16,8 @@
 <body>
     
     <div class="topnav">
-        <a href="/HTML/Front+flex.html">Home</a>
-        <a class="active" href="/HTML/Contact.html">Contact</a>
+        <a href="/HTML/Front+flex.php">Home</a>
+        <a class="active" href="/HTML/Contact.php">Contact</a>
     </div>
     
     <div class="main">
@@ -34,7 +34,7 @@
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/HTML/Tudor.html">
+                <a target="_self" href="/HTML/Tudor.php">
                     <img src="/images/tudor.png" alt="Tudor" width="600" height="400">
                 </a>
                 <div class="desc">
@@ -45,7 +45,7 @@
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/HTML/Maria.html">
+                <a target="_self" href="/HTML/Maria.php">
                     <img src="/images/maria.png" alt="Maria" width="600" height="400">
                 </a>
                 <div class="desc">
