@@ -10,7 +10,7 @@
 
 body {
   width: 100%; 
-  background-color: #303030;
+  background-color: #0f0f0f;
   height: initial;
   margin-left: 0;
   margin-top: 0;
@@ -22,7 +22,6 @@ body {
 }
 .main { /*toate elementele */
   text-align: center;
-  margin: 0 0 0 0; 
 }
 .title-section { /*landing: title secion*/
   text-align: center;
@@ -225,7 +224,7 @@ span.fade{
     width: 30%;
     margin: 0 auto; 
   }
-  .center-container{
+  .title-section{
       text-align: center;
       font-size: 70%;
     }
@@ -238,7 +237,7 @@ span.fade{
   .center-container{
     flex-direction:column;
   }
-  .content {
+  .title-section {
     width: inherit;
       font-size: 50%
   }
@@ -248,8 +247,8 @@ span.fade{
     margin: 0 auto; 
     }
 }
-@media screen and (max-width:400px){
-  .topnav .login-container{
-    float: center; 
+@media screen and (max-width:1000px){
+  .title-section {
+      font-size: 50%;
   }
 }
