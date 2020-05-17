@@ -7,6 +7,6 @@ try{
 }
 
 if($pdoconnection != null){
-    echo "salut";
+
     $pdoconnection=null; //disconnect
 }

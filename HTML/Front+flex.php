@@ -12,11 +12,11 @@
     <body>
         <div class="topnav">
             <a class="active" href="Front+flex.php">Home</a>
-            <a href="News.html">News</a>
-            <a href="Categories.html">Categories</a>
-            <a href="People/Contact.html">Contact</a>
+            <a href="News.php">News</a>
+            <a href="Categories.php">Categories</a>
+            <a href="People/Contact.php">Contact</a>
             <div class="login-container">
-                <button type="button" onclick="location.href ='Login.html'">Login</button>
+                <button type="button" onclick="location.href ='Login.php'">Login</button>
             </div>
         </div>
         <div class="title-section">
@@ -26,9 +26,9 @@
         <div class="footer">
             <footer>
                 <div class="footer-container">
-                    <button type="button" onclick="location.href = 'People/Maria.html' ">Maria Istrate</button>
-                    <button type="button" onclick="location.href = 'People/Daria.html' ">Daria Stărică</button>
-                    <button type="button" onclick="location.href = 'People/Tudor.html' ">Tudor Mihăiuc</button>
+                    <button type="button" onclick="location.href = 'People/Maria.php' ">Maria Istrate</button>
+                    <button type="button" onclick="location.href = 'People/Daria.php' ">Daria Stărică</button>
+                    <button type="button" onclick="location.href = 'People/Tudor.php' ">Tudor Mihăiuc</button>
                 </div>
             </footer>
         </div>
