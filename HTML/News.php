@@ -19,7 +19,9 @@
             </div>
         </div>
         <div class="main-section">
-            <div class="title-page">This week's</div>
+            <div class="news-title">This week's equation</div>
+            <div class="mini-title">The discriminant equation</div>
+            <div class="equation eq-text">This is a placeholder text for the equation to come</div>
         </div>
     </body>
 </html>
