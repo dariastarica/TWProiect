@@ -2,8 +2,6 @@
 //signin.php
 include 'DatabaseConnection.php';
 
-echo '<h3>Sign in</h3>';
-
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 {
@@ -11,17 +9,7 @@ if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 }
 else
 {
-    if($_SERVER['REQUEST_METHOD'] != 'POST')
-    {
-        /*the form hasn't been posted yet, display it
-          note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="">
-            Username: <input type="text" name="user_name" />
-            Password: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
-         </form>';
-    }
-    else
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         /* so, the form has been posted, we'll process the data in three steps:
             1.  Check the data
@@ -30,12 +18,12 @@ else
         */
         $errors = array(); /* declare the array for later use */
 
-        if(!isset($_POST['user_name']))
+        if(!isset($_POST['username']))
         {
             $errors[] = 'The username field must not be empty.';
         }
 
-        if(!isset($_POST['user_pass']))
+        if(!isset($_POST['pass']))
         {
             $errors[] = 'The password field must not be empty.';
         }
@@ -55,19 +43,23 @@ else
             //the form has been posted without errors, so save it
             //notice the use of mysql_real_escape_string, keep everything safe!
             //also notice the sha1 function which hashes the password
-            $sql = "SELECT 
-                        user_id,
-                        user_name,
-                        user_level
-                    FROM
-                        users
-                    WHERE
-                        user_name = '" . mysql_real_escape_string($_POST['user_name']) . "'
-                    AND
-                        user_pass = '" . sha1($_POST['user_pass']) . "'";
+            $username = $_POST['username'];
+            $password = $_POST['pass'];
 
-            $result = mysql_query($sql);
-            if(!$result)
+                $statementemnString = "select 
+                                            user_id, 
+                                            user_name, 
+                                            user_level
+                                       from users
+                                       where user_name = :username and user_pass=:password;
+                                            ";
+                $statement=$pdoconnection->prepare($statementemnString);
+                $statement->bindParam(":username",$username);
+                $statement->bindParam(":password",$password);
+                $statement->execute();
+            }
+
+            if(!$statement)
             {
                 //something went wrong, display the error
                 echo 'Something went wrong while signing in. Please try again later.';
@@ -78,7 +70,7 @@ else
                 //the query was successfully executed, there are 2 possibilities
                 //1. the query returned data, the user can be signed in
                 //2. the query returned an empty result set, the credentials were wrong
-                if(mysql_num_rows($result) == 0)
+                if($statement->rowCount() == 0)
                 {
                     echo 'You have supplied a wrong user/password combination. Please try again.';
                 }
@@ -88,18 +80,17 @@ else
                     $_SESSION['signed_in'] = true;
 
                     //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages
-                    while($row = mysql_fetch_assoc($result))
+                    while($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
                         $_SESSION['user_id']    = $row['user_id'];
                         $_SESSION['user_name']  = $row['user_name'];
                         $_SESSION['user_level'] = $row['user_level'];
                     }
 
-                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="index.php">Proceed to the forum overview</a>.';
+                    echo 'Welcome, ' . $_SESSION['user_name'] . '. <a href="Categories.php">Proceed to the forum overview</a>.';
                 }
             }
         }
-    }
 }
 
 ?>
@@ -117,11 +108,12 @@ else
 
 <body>
   <div class="main">
+      <form method="post" action="">
     <p class="sign" align="center">Login</p>
-      <input class="un " type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">Login</a>         
-                
+              <input name="username" class="un " type="text" align="center" placeholder="Username">
+              <input name="pass" class="pass" type="password" align="center" placeholder="Password">
+          <a class="submit" align="center">Login</a>
+      </form>
     </div>
      
 </body>
