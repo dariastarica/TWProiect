@@ -1,0 +1,121 @@
+body {
+
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;
+
+}
+/*///////////////////////TOPNAV/////////////////////////////*/
+
+/* Add a black background color to the top navigation */
+.main{
+    margin-left: auto;
+    margin-right: auto;
+}
+.topnav {
+    background-color: #FFF8DC;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: 	#A0522D;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display:flex;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color:#808000;
+    color: white;
+
+}
+
+.back-button{
+    color: #FFFFFF;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: left;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 17px;
+    border:none;
+    cursor:pointer;
+    margin-top: 3px;
+    margin-right:5px;
+    margin-bottom: 1px;
+    background-color:#808000;
+    border-radius: 5px;
+}
+
+div.gallery{
+    border: 1px solid #ccc;
+
+}
+div.gallery:hover{
+    border: 1px solid #777;
+    background-color: antiquewhite;
+}
+div.gallery img{
+    width: 100%;
+    height: auto;
+}
+/*
+div.gallery img:hover{
+    background-color: antiquewhite
+}*/
+div.desc{
+    padding: 15px;
+    text-align: center;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+.responsive{
+    padding: 0 6px;
+    float: left;
+    width: 24.9999999%;
+}
+@media only screen and (max-width:500px){
+    .responsive{
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+@media only screen and (max-width:500px){
+    .responsive{
+        width: 100%;
+    }
+}
+.clearfix:after{
+    content:"";
+}
+.single-container button{
+    color: 	#FFFFFF;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: left;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 17px;
+    border:none;
+    cursor:pointer;
+    margin-top: 3px;
+    margin-right:5px;
+    margin-bottom: 1px;
+    background-color:#808000;
+    border-radius: 5px;
+
+}
+

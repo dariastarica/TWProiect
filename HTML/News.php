@@ -1,5 +1,7 @@
 <html>
-
+<?php
+include 'ConnectionDB.php';
+?>
 <head>
     <link rel="stylesheet" href="../CSS/News.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -23,6 +25,9 @@
             <div class="mini-title">The discriminant equation</div>
             <div class="equation eq-text">This is a placeholder text for the equation to come</div>
         </div>
+        <?php
+        echo "Salut!";
+        ?>
     </body>
 </html>
 

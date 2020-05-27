@@ -3,12 +3,8 @@
 include 'DatabaseConnection.php';
 
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
-if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
-{
-    echo 'You are already signed in, you can <a href="signout.php">sign out</a> if you want.';
-}
-else
-{
+//      SORRY GUYS I DIDN'T CHECK FIRST LET ME JUST SEE IF THIS SHIT WOOOOOOORKSSSSSSSSS
+
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         /* so, the form has been posted, we'll process the data in three steps:
@@ -91,7 +87,6 @@ else
                 }
             }
         }
-}
 
 ?>
 
@@ -102,14 +97,13 @@ else
   <link rel="stylesheet" href="../CSS/Signin.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Log in</title>
 </head>
 
 <body>
   <div class="main">
-      <form method="post" action="">
-    <p class="sign" align="center">Login</p>
+      <form action="processLogin.php" METHOD="POST">
+            <p class="sign" align="center">Login</p>
               <input name="username" class="un " type="text" align="center" placeholder="Username">
               <input name="pass" class="pass" type="password" align="center" placeholder="Password">
           <a class="submit" align="center">Login</a>
