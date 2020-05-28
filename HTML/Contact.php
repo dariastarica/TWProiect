@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="../CSS/Contact.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Contact</title>
 </head>
 <script>
@@ -15,14 +16,14 @@
 <body>
     
     <div class="topnav">
-        <a href="../HTML/Front+flex.php">Home</a>
-        <a class="active" href="../HTML/Contact.php">Contact</a>
+        <a href="/HTML/Front+flex.php">Home</a>
+        <a class="active" href="/HTML/Contact.php">Contact</a>
     </div>
     
     <div class="main">
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="../HTML/Daria.html">
+                <a target="_self" href="/HTMLDaria.html">
                     <img src="../images/daria.png" alt="Daria" width="600" height="400">
                 </a>
                 <div class="desc">
@@ -33,7 +34,7 @@
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="../HTML/Tudor.php">
+                <a target="_self" href="/HTML/Tudor.php">
                     <img src="../images/tudor.png" alt="Tudor" width="600" height="400">
                 </a>
                 <div class="desc">
@@ -44,7 +45,7 @@
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="../HTML/Maria.php">
+                <a target="_self" href="/HTML/Maria.php">
                     <img src="../images/maria.png" alt="Maria" width="600" height="400">
                 </a>
                 <div class="desc">

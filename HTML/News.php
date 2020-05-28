@@ -1,6 +1,6 @@
 <html>
 <?php
-include 'ConnectionDB.php';
+include 'DatabaseConnection.php';
 ?>
 <head>
     <link rel="stylesheet" href="../CSS/News.css">
