@@ -11,7 +11,7 @@
 <div class="main">
     <form action="" METHOD="POST">
         <p class="sign" align="center">Login</p>
-        <input name="username" class="un " type="text" align="center" placeholder="Username">
+        <input name="username" class="un" type="text" align="center" placeholder="Username">
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
         <input type="submit" class="submit" align="center" value="Submit" />
     </form>
@@ -19,8 +19,8 @@
 
 <?php
 include 'DatabaseConnection.php';
-$password = $_POST["password"];
-$username = $_POST["username"];
+$password = $_POST['password'];
+$username = $_POST['username'];
 $errors = array();
 
 if ($password == null || $username == null) {
@@ -36,7 +36,12 @@ if ($row = $statement->fetch() == null) {
     $errors[] = 'User not registered';
 }
 else {
+    while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+        $_SESSION['user_id']    = $row['user_id'];
+        $_SESSION['user_name']  = $row['user_name'];
+    }
     echo 'Loged in';
+
 }
 
  foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
