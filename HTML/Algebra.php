@@ -48,33 +48,6 @@
     foreach(new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k=>$v){
         echo $v;
     }
-
-    /*if(!$statement){
-        echo 'The equations could not be displayed!';
-    }
-    else{
-        if($row = $statement->fetch() == null){
-            $errors[] = 'No equations added yet!';
-        }
-        else{
-            echo '<table border="1">
-                <tr>
-                    <th>Equations</th>
-                    <th>Last Comment</th>
-                </tr>';
-            while($row=mysqli_fetch_assoc($statement)){
-                echo '<tr>';
-                echo '<td class="leftpart">';
-                echo '<h3><a href="Algebra.php?id">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
-                echo '</td>';
-                echo '<td class="rightpart">';
-                echo '<a href="Comments.php?id=">Topic subject</a> at 10-10';
-                echo '</td>';
-                echo '</tr>';
-            }
-
-        }
-    }*/
     echo "</table>";
     ?>
 </div>
