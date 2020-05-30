@@ -16,7 +16,7 @@
 <body>
     
     <div class="topnav">
-        <a href="/HTML/Front+flex.php">Home</a>
+        <a href="../HTML/Front+flex.php">Home</a>
         <a class="active" href="/HTML/Contact.php">Contact</a>
     </div>
     

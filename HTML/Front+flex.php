@@ -22,8 +22,6 @@
 <div class="title-section">
     <div class="fancy-title">Math Explorer</div>
 </div>
-
-
 <div class="footer">
     <footer>
         <div class="footer-container">
