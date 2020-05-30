@@ -6,3 +6,7 @@
     }catch (PDOException $exception){
         echo $exception,PHP_EOL;
     }
+    if($pdoconnection != null){
+
+        $pdoconnection=null; //disconnect
+    }
