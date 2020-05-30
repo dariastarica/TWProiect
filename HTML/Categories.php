@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Analiza.php">
+    <a href ="../HTML/Calculus.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -45,7 +45,7 @@
     </a>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Geometrie.php">
+    <a href ="../HTML/Geometry.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -59,7 +59,7 @@
     </a>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Trigonometrie.php">
+    <a href ="../HTML/Trigonometry.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -72,7 +72,5 @@
         </div>
     </a>
 </div>
-
-
 </body>
 </html>
