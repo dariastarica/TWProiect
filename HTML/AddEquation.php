@@ -9,6 +9,7 @@ echo '<form method="post" action="">
 
 include 'DatabaseConnection.php';
 
+$eqName = $_POST['eq_name'];
 $eqContent = $_POST['eq_content'];
 $userID = 1; //din sesion
 $eqCategory = "Algebra"; //aleasa din drop down, pus algebra doar ca sa mearga
@@ -18,8 +19,9 @@ if ($eqContent == null || $eqContent == null) {
     $errors[] = 'These fields cannot be empty';
 }
 
-$insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY) VALUES (:content,sysdate(),:userID,:cat)";
+$insertEqString = "INSERT INTO posts(POST_NAME,POST_CONTENT, POST_DATE, POST_BY, CATEGORY) VALUES (:postName,:content,sysdate(),:userID,:cat)";
 $statement = $pdoconnection->prepare($insertEqString);
+$statement->bindParam(":postName",$eqName);
 $statement->bindParam(":content", $eqContent);
 $statement->bindParam(":userID", $userID);
 $statement->bindParam(":cat", $eqCategory);
