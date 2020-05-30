@@ -15,7 +15,7 @@ $userID = 1; //din sesion
 $eqCategory = "Algebra"; //aleasa din drop down, pus algebra doar ca sa mearga
 $errors = array();
 
-if ($eqContent == null || $eqContent == null) {
+if ($eqContent == null || $eqName == null) {
     $errors[] = 'These fields cannot be empty';
 }
 
