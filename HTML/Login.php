@@ -13,7 +13,9 @@
         <p class="sign" align="center">Login</p>
         <input name="username" class="un " type="text" align="center" placeholder="Username">
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
-        <input type="submit" class="submit" align="center" value="Submit" />
+        <input type="submit" class="submit" align="center" value="Login" />
+        <p align = "center">Don't have an account? Sign up!</p>
+        <button class="submit" align="center" value ="Sign up!">Sign up</button>
     </form>
 </div>
 
@@ -39,9 +41,9 @@ else {
     echo 'Loged in';
 }
 
- foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
+foreach ($errors as $key => $value){/* walk through the array so all the errors get displayed / {
 
-        echo '<li>' . $value . '</li>'; /* this generates a nice error list */
+        echo '<li>' . $value . '</li>'; / this generates a nice error list */
     }
     echo '</ul>';
 
