@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 echo '<form method="post" action="">
     Equation name: <input type="text" name="eq_name" />
     Equation description: <textarea name="eq_content" /></textarea>
@@ -11,7 +11,7 @@ include 'DatabaseConnection.php';
 
 $eqName = $_POST['eq_name'];
 $eqContent = $_POST['eq_content'];
-$userID = 1; //din sesion
+$userName = $_SESSION['user_name']; //din session
 $eqCategory = "Algebra"; //aleasa din drop down, pus algebra doar ca sa mearga
 $errors = array();
 
@@ -19,10 +19,10 @@ if ($eqContent == null || $eqName == null) {
     $errors[] = 'These fields cannot be empty';
 }
 
-$insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY, post_name) VALUES (:content,sysdate(),:userID,:cat,:description)";
+$insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY, post_name) VALUES (:content,sysdate(),:userName,:cat,:description)";
 $statement = $pdoconnection->prepare($insertEqString);
 $statement->bindParam(":content", $eqName);
-$statement->bindParam(":userID", $userID);
+$statement->bindParam(":userName", $userName);
 $statement->bindParam(":cat", $eqCategory);
 $statement->bindParam(":description", $eqContent);
 $result = $statement->execute();
