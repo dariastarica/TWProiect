@@ -41,14 +41,20 @@
     echo "</tr>" . "\n";
   }
 }
-    $sql="SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id";
+    $sql="SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Algebra'";
     $statement = $pdoconnection->prepare($sql);
     $statement->execute();
     $result=$statement->setFetchMode(PDO::FETCH_ASSOC);
-    foreach(new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k=>$v){
-        echo $v;
+    if ($row = $statement->fetch() != null){
+        foreach (new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k => $v) {
+            echo $v;
+        }
+        echo "</table>";
     }
-    echo "</table>";
+    else{
+        echo "</table>";
+        echo 'No equations added yet!';
+    }
     ?>
 </div>
 <div class="footer">
