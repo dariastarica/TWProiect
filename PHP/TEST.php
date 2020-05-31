@@ -12,9 +12,9 @@ if($pdoconnection != null){
     $statement=$pdoconnection->prepare($statementemnString);
     $statement->bindParam(":value",$insertvalue);
     $statement->execute();
-    while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        //echo $row->id,$row->value, PHP_EOL;
-        print_r($row);
+    while($row = $statement->fetch(PDO::FETCH_OBJ)) {
+        echo $row->id,$row->value, PHP_EOL;
+        //print_r($row);
     }
     $pdoconnection=null; //disconnect
 }

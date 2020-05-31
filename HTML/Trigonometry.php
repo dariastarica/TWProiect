@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +19,13 @@
     <a href="Categories.php">Categories</a>
     <a href="Contact.php">Contact</a>
     <div class="login-container">
-        <button type="button" onclick="location.href ='Login.php'">Login</button>
+        <?php
+        if ($_SESSION['logged'] == false) {
+            echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
+        } else {
+            echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
+        }
+        ?>
     </div>
 </div>
 <div class="equation-view">
@@ -24,35 +33,41 @@
     include 'DatabaseConnection.php';
     echo "<table style='border: solid 1px black;'>";
     echo "<tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
-    class TableRows extends RecursiveIteratorIterator {
-        function __construct($it) {
+
+    class TableRows extends RecursiveIteratorIterator
+    {
+        function __construct($it)
+        {
             parent::__construct($it, self::LEAVES_ONLY);
         }
 
-        function current() {
-            return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+        function current()
+        {
+            return "<td style='width:150px;border:1px solid black;'>" . parent::current() . "</td>";
         }
 
-        function beginChildren() {
+        function beginChildren()
+        {
             echo "<tr>";
         }
 
-        function endChildren() {
+        function endChildren()
+        {
             echo "</tr>" . "\n";
         }
     }
-    $sql="SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Trigonometry'";
+
+    $sql = "SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Trigonometry'";
     $statement = $pdoconnection->prepare($sql);
     $statement->execute();
-    $result=$statement->setFetchMode(PDO::FETCH_ASSOC);
+    $result = $statement->setFetchMode(PDO::FETCH_ASSOC);
 
-    if ($row = $statement->fetch() != null){
+    if ($row = $statement->fetch() != null) {
         foreach (new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k => $v) {
             echo $v;
         }
         echo "</table>";
-    }
-    else{
+    } else {
         echo "</table>";
         echo 'No equations added yet!';
     }

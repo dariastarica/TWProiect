@@ -1,7 +1,9 @@
-<html>
+
 <?php
 include 'DatabaseConnection.php';
+session_start();
 ?>
+<html>
 <head>
     <link rel="stylesheet" href="../CSS/News.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -17,7 +19,13 @@ include 'DatabaseConnection.php';
             <a href="Categories.php">Categories</a>
             <a href="Contact.php">Contact</a>
             <div class="login-container">
-                <button type="button" onclick="location.href ='Login.html'">Login</button>
+                <?php
+                if ($_SESSION['logged'] == false) {
+                    echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
+                } else {
+                    echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
+                }
+                ?>
             </div>
         </div>
         <div class="main-section">

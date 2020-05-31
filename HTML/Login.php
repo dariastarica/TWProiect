@@ -1,13 +1,13 @@
 <?php
 session_start();
-$_SESSION['logged']=false;
+$_SESSION['logged'] = false;
 ?>
 <html>
 
 <head>
     <link rel="stylesheet" href="../CSS/Signin.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Log in</title>
 </head>
 
@@ -17,9 +17,9 @@ $_SESSION['logged']=false;
         <p class="sign" align="center">Login</p>
         <input name="username" class="un" type="text" align="center" placeholder="Username">
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
-        <input type="submit" class="submit" align="center" value="Login" />
-        <p align = "center">Don't have an account? Sign up!</p>
-        <button class="submit" align="center" value ="Sign up!">Sign up</button>
+        <input type="submit" class="submit" align="center" value="Login"/>
+        <p align="center">Don't have an account? Sign up!</p>
+        <button class="submit" align="center" value="Sign up!">Sign up</button>
     </form>
 </div>
 
@@ -33,17 +33,18 @@ if ($password == null || $username == null) {
     $errors[] = 'These fields cannot be empty';
 }
 
-$getEmailStatementString = "SELECT user_name, user_pass FROM users WHERE user_name = :nameParam and user_pass = :passParam";
+$getEmailStatementString = "SELECT user_name, user_pass,user_id FROM users WHERE user_name = :nameParam and user_pass = :passParam";
 $statement = $pdoconnection->prepare($getEmailStatementString);
 $statement->bindParam(":nameParam", $username);
-$statement->bindParam(":passParam",$password);
+$statement->bindParam(":passParam", $password);
 $statement->execute();
-while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
     $_SESSION['logged'] = true;
-    $_SESSION['user_name']=$row->user_name;
+    $_SESSION['user_name'] = $row->user_id;
+    echo $_SESSION['user_name'];
     header("Location: ./Front+flex.php");
 }
-    $errors[]='User not registered';
+$errors[] = 'User not registered';
 
 foreach ($errors as $key => $value) {
 

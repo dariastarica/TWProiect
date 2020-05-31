@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,13 @@
     <a class="active" href="Categories.php">Categories</a>
     <a href="Contact.php">Contact</a>
     <div class="login-container">
-        <button type="button" onclick="location.href ='Login.php'">Login</button>
+        <?php
+        if ($_SESSION['logged'] == false) {
+            echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
+        } else {
+            echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
+        }
+        ?>
     </div>
 </div>
 <div class="quarter">

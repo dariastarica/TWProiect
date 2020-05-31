@@ -47,6 +47,7 @@ $statement->bindParam(":email", $email);
 $result = $statement->execute();
 if ($result != null) {
     echo 'Registered';
+    header("Location: ./Login.php");
 } else {
     foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
 
