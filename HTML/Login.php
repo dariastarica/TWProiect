@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['logged']=false;
+?>
 <html>
 
 <head>
@@ -34,23 +38,19 @@ $statement = $pdoconnection->prepare($getEmailStatementString);
 $statement->bindParam(":nameParam", $username);
 $statement->bindParam(":passParam",$password);
 $statement->execute();
-if ($row = $statement->fetch() == null) {
-    $errors[] = 'User not registered';
+if ($row = $statement->fetch(PDO::FETCH_ASSOC) != null) {
+    $_SESSION['logged'] = true;
+    header("Location: ./Front+flex.php");
 }
 else {
-    while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-        $_SESSION['user_id']    = $row['user_id'];
-        $_SESSION['user_name']  = $row['user_name'];
-    }
-    echo 'Loged in';
-
+    $errors[]='User not registered';
 }
 
-foreach ($errors as $key => $value){/* walk through the array so all the errors get displayed / {
+foreach ($errors as $key => $value) {
 
-        echo '<li>' . $value . '</li>'; / this generates a nice error list */
-    }
-    echo '</ul>';
+        echo '<li>' . $value . '</li>';
+}
+echo '</ul>';
 
 ?>
 

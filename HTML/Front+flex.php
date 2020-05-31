@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +19,14 @@
     <a href="Categories.php">Categories</a>
     <a href="Contact.php">Contact</a>
     <div class="login-container">
-        <button type="button" onclick="location.href ='Login.php'">Login</button>
+        <?php
+            if($_SESSION['logged']==false)
+            {
+                echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
+            }else{
+                echo '<button type="button">Logout</button>';
+            }
+        ?>
     </div>
 </div>
 <div class="title-section">
