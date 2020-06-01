@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
 <div class="topnav">
-    <a href="Front+flex.php">Home</a>
+    <a href="index.php">Home</a>
     <a href="News.php">News</a>
     <a class="active" href="Categories.php">Categories</a>
     <a href="Contact.php">Contact</a>

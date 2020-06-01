@@ -31,27 +31,28 @@ $errors = array();
 
 if ($password == null || $username == null) {
     $errors[] = 'These fields cannot be empty';
+} else {
+    $hashedPassword = sha1($password);
+    $getEmailStatementString = "SELECT user_name, user_pass,user_id FROM users WHERE user_name = :nameParam and user_pass = :passParam";
+    $statement = $pdoconnection->prepare($getEmailStatementString);
+    $statement->bindParam(":nameParam", $username);
+    $statement->bindParam(":passParam", $hashedPassword);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
+        $_SESSION['logged'] = true;
+        $_SESSION['user_name'] = $row->user_id;
+        echo $_SESSION['user_name'];
+        header("Location: ./index.php");
+    }
+    $errors[] = 'User not registered';
 }
+if (isset($errors)) {
+    foreach ($errors as $key => $value) {
 
-$getEmailStatementString = "SELECT user_name, user_pass,user_id FROM users WHERE user_name = :nameParam and user_pass = :passParam";
-$statement = $pdoconnection->prepare($getEmailStatementString);
-$statement->bindParam(":nameParam", $username);
-$statement->bindParam(":passParam", $password);
-$statement->execute();
-while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
-    $_SESSION['logged'] = true;
-    $_SESSION['user_name'] = $row->user_id;
-    echo $_SESSION['user_name'];
-    header("Location: ./Front+flex.php");
+        echo '<li>' . $value . '</li>';
+    }
+    echo '</ul>';
 }
-$errors[] = 'User not registered';
-
-foreach ($errors as $key => $value) {
-
-    echo '<li>' . $value . '</li>';
-}
-echo '</ul>';
-
 ?>
 
 </body>
