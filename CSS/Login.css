@@ -19,11 +19,7 @@ body {
         font-weight: bold;
         font-size: 23px;
     }
-    
-    .backbutton{
-        
-    
-    }
+
     .un {
     width: 76%;
     color: rgb(38, 50, 56);
@@ -47,7 +43,9 @@ body {
     form.form1 {
         padding-top: 40px;
     }
-    
+    .donthave{
+        font-size: 1px;
+    }
     .pass {
     width: 76%;
     color: rgb(38, 50, 56);
