@@ -31,38 +31,20 @@ session_start();
 <div class="equation-view">
     <?php
     include 'DatabaseConnection.php';
-    echo "<table style='border: solid 1px black;'>";
-    echo "<tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
-    class TableRows extends RecursiveIteratorIterator {
-        function __construct($it) {
-            parent::__construct($it, self::LEAVES_ONLY);
-        }
-
-        function current() {
-            return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
-        }
-
-        function beginChildren() {
-            echo "<tr>";
-        }
-
-        function endChildren() {
-            echo "</tr>" . "\n";
-        }
-    }
     $sql="SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Calculus'";
     $statement = $pdoconnection->prepare($sql);
     $statement->execute();
-    $result=$statement->setFetchMode(PDO::FETCH_ASSOC);
-    if ($row = $statement->fetch() != null){
-        foreach (new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k => $v) {
-            echo $v;
+    if($statement->rowCount()>0){
+        echo "<table><tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
+        while($row=$statement->fetch(PDO::FETCH_OBJ)){
+            echo '<tr>';
+            echo '<td><a href="Comments.php?id=">'.$row->post_content.'</a></td>';
+            echo "<td>".$row->post_name."</td>";
+            echo "<td>".$row->user_name."</td><td>".$row->category."</td></tr>";
         }
         echo "</table>";
-    }
-    else{
-        echo "</table>";
-        echo 'No equations added yet!';
+    }else{
+        echo "No equations added yet!";
     }
     ?>
 </div>

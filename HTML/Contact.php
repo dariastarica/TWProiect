@@ -1,12 +1,18 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <link rel="stylesheet" href="../CSS/Contact.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <title>Contact</title>
+    <title> MEq </title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../CSS/Contact.css">
 </head>
+
 <script>
     function goBack(){
         window.history.back(); 
@@ -14,11 +20,22 @@
 </script>
 
 <body>
-    
-    <div class="topnav">
-        <a href="index.php">Home</a>
-        <a class="active" href="/HTML/Contact.php">Contact</a>
+
+<div class="topnav">
+    <a class="active" href="index.php">Home</a>
+    <a href="News.php">News</a>
+    <a href="Categories.php">Categories</a>
+    <a href="Contact.php">Contact</a>
+    <div class="login-container">
+        <?php
+        if ($_SESSION['logged'] == false) {
+            echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
+        } else {
+            echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
+        }
+        ?>
     </div>
+</div>
     
     <div class="main">
         <div class="responsive">

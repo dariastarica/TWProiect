@@ -24,7 +24,7 @@ $_SESSION['logged'] = false;
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
         <input type="submit" class="submit" align="center" value="Login"/>
         <div class="donthave" align="center">Don't have an account? Sign up!</div>
-        <button class="submit" onclick="window.location.href='SingUp.php'" align="center" value="Sign up!">Sign up</button>
+        <button class="submit" onclick="window.location.href='SignUp.php'" align="center" value="Sign up!">Sign up</button>
     </form>
 </div>
 

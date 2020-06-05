@@ -31,7 +31,7 @@ session_start();
         <div class="main-section">
             <?php
             include 'DatabaseConnection.php';
-            $statementString = "SELECT post_name, post_content from posts order by post_date limit 1";
+            $statementString = "SELECT post_name, post_content from posts order by post_date desc limit 1";
             $statement = $pdoconnection->prepare($statementString);
             $statement->execute();
             $row= $statement->fetch(PDO::FETCH_OBJ);
