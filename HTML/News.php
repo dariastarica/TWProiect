@@ -1,6 +1,5 @@
 
 <?php
-include 'DatabaseConnection.php';
 session_start();
 ?>
 <html>
@@ -28,14 +27,26 @@ session_start();
                 ?>
             </div>
         </div>
+
         <div class="main-section">
+            <?php
+            include 'DatabaseConnection.php';
+            $statementString = "SELECT post_name, post_content from posts order by post_date limit 1";
+            $statement = $pdoconnection->prepare($statementString);
+            $statement->execute();
+            $row= $statement->fetch(PDO::FETCH_OBJ);
+            $name=$row->post_name;
+            $content=$row->post_content;
+            ?>
             <div class="news-title">This week's equation</div>
-            <div class="mini-title">The discriminant equation</div>
-            <div class="equation eq-text">This is a placeholder text for the equation to come</div>
+            <div class="mini-title">
+                <?php echo $name; ?>
+            </div>
+            <div class="equation eq-text">
+                <?php echo $content; ?>
+            </div>
         </div>
-        <?php
-        echo "Salut!";
-        ?>
+
     </body>
 </html>
 
