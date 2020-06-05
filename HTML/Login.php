@@ -12,24 +12,34 @@ $_SESSION['logged'] = false;
 </head>
 
 <body>
+    <script>
+        function userNotFoundAlert(){
+            alert('User not found!');
+        }
+    </script>
 <div class="main">
     <form action="" METHOD="POST">
         <p class="sign" align="center">Login</p>
         <input name="username" class="un" type="text" align="center" placeholder="Username">
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
         <input type="submit" class="submit" align="center" value="Login"/>
-        <p align="center">Don't have an account? Sign up!</p>
-        <button class="submit" align="center" value="Sign up!">Sign up</button>
+        <div class="donthave" align="center">Don't have an account? Sign up!</div>
+        <button class="submit" onclick="window.location.href='SingUp.php'" align="center" value="Sign up!">Sign up</button>
     </form>
 </div>
 
 <?php
+
 include 'DatabaseConnection.php';
-$password = $_POST['password'];
-$username = $_POST['username'];
+
+$username = $password = "";
+if(isset($_POST["username"])&&isset($_POST["password"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+}
 $errors = array();
 
-if ($password == null || $username == null) {
+if (($password == null || $username == null)&&$_SESSION['logged']!=false) {
     $errors[] = 'These fields cannot be empty';
 } else {
     $hashedPassword = sha1($password);
@@ -46,13 +56,16 @@ if ($password == null || $username == null) {
     }
     $errors[] = 'User not registered';
 }
-if (isset($errors)) {
-    foreach ($errors as $key => $value) {
 
-        echo '<li>' . $value . '</li>';
+    if (isset($errors) && $_SESSION['logged']===false&&isset($_POST["username"])&&isset($_POST["password"])) {
+        foreach ($errors as $key => $value) {
+
+            echo "<script type='text/javascript'>alert('$value');</script>";
+
+
+        }
+        echo '</ul>';
     }
-    echo '</ul>';
-}
 ?>
 
 </body>
