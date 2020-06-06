@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'TopNav.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +24,6 @@ include 'TopNav.php';
         ?>
     </div>
 </div>
-
 <div class="title-section">
     <div class="fancy-title">Math Explorer</div>
 </div>

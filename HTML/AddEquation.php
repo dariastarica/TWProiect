@@ -23,16 +23,16 @@ else {
     $insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY, post_name) VALUES (:content,sysdate(),:userName,:cat,:description)";
     $statement = $pdoconnection->prepare($insertEqString);
     $statement->bindParam(":content", $eqName);
-    $statement->bindParam(":userName",$username );
+    $statement->bindParam(":userName", $username);
     $statement->bindParam(":cat", $eqCategory);
     $statement->bindParam(":description", $eqContent);
     $result = $statement->execute();
     if ($result != null) {
         echo 'Equation added!';
     } else {
-        foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
+        foreach ($errors as $key => $value) {/* walk through the array so all the errors get displayed / {
 
-            echo '<li>' . $value . '</li>'; /* this generates a nice error list */
+            echo '<li>' . $value . '</li>'; / this generates a nice error list */
         }
         echo '</ul>';
     }

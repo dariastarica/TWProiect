@@ -50,8 +50,8 @@ if (($password == null || $username == null)&&$_SESSION['logged']!=false) {
     $statement->execute();
     while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         $_SESSION['logged'] = true;
-        $_SESSION['user_name'] = $row->user_id;
-        echo $_SESSION['user_name'];
+        $_SESSION['user_id'] = $row->user_id;
+        echo $_SESSION['user_id'];
         header("Location: ./index.php");
     }
     $errors[] = 'User not registered';

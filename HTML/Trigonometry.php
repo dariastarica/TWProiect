@@ -35,6 +35,7 @@ $_SESSION['category']="Trigonometry";
     if($statement->rowCount()>0){
         echo "<table><tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
         while($row=$statement->fetch(PDO::FETCH_OBJ)){
+            $_SESSION['post_id']=$row->post_id;
             echo '<tr>';
             echo '<td><a href="Comments.php?id=">'.$row->post_content.'</a></td>';
             echo "<td>".$row->post_name."</td>";

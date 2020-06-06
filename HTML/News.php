@@ -35,10 +35,10 @@ session_start();
             ?>
             <div class="news-title">This week's equation</div>
             <div class="mini-title">
-                <?php echo $name; ?>
+                <?php echo $content; ?>
             </div>
             <div class="equation eq-text">
-                <?php echo $content; ?>
+                <?php echo $name; ?>
             </div>
         </div>
 

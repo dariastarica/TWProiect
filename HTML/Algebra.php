@@ -28,14 +28,17 @@ $_SESSION['category']="Algebra";
 <div class="equation-view">
     <?php
     include 'DatabaseConnection.php';
-    $sql="SELECT post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Algebra'";
+    $sql="SELECT post_id, post_content, post_name, user_name, category FROM posts join users u on posts.post_by = u.user_id where category='Algebra'";
     $statement = $pdoconnection->prepare($sql);
     $statement->execute();
     if($statement->rowCount()>0){
     echo "<table><tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
     while($row=$statement->fetch(PDO::FETCH_OBJ)){
+
+        //var_dump($_SESSION['post_id']);
         echo '<tr>';
-        echo '<td><a href="Comments.php?id=">'.$row->post_content.'</a></td>';
+        echo '<td><a href="AddComment.php?id='.$row->post_id.'">'.$row->post_content.'</a></td>';
+       // $_SESSION['post_id']=$row->post_id;
         echo "<td>".$row->post_name."</td>";
         echo "<td>".$row->user_name."</td><td>".$row->category."</td></tr>";
     }
