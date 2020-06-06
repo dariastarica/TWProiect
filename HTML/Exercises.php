@@ -36,7 +36,6 @@ session_start();
     while($row=$statement->fetch(PDO::FETCH_OBJ)){
         echo $row->post_content;
     }
-
     echo '<br>';
     echo '<button type="button" onclick="location.href =\'AddExercises.php?id='.$id.'\'"> Add Exercises </button>';
 
