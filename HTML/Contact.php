@@ -28,11 +28,7 @@ session_start();
     <a href="Contact.php">Contact</a>
     <div class="login-container">
         <?php
-        if ($_SESSION['logged'] == false) {
-            echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
-        } else {
-            echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
-        }
+        include 'TopNav.php';
         ?>
     </div>
 </div>

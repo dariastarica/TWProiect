@@ -5,7 +5,6 @@ echo '<form method="post" action="">
     Equation description: <textarea name="eq_content" /></textarea>
     <input type="submit" value="Add Equation" />
  </form>';
-
 include 'DatabaseConnection.php';
 
 $eqName = $_POST['eq_name'];
@@ -13,7 +12,7 @@ $eqContent = $_POST['eq_content'];
 $username = $_SESSION['user_name'];
 echo $username;
 
-$eqCategory = "Algebra"; //aleasa din drop down, pus algebra doar ca sa mearga
+$eqCategory = $_SESSION['category'];
 $errors = array();
 
 if ($eqContent == null || $eqName == null) {

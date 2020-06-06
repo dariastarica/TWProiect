@@ -11,17 +11,13 @@ session_start();
 </head>
 <body>
 <div class="topnav">
-    <a href="index.php">Home</a>
+    <a class="active" href="index.php">Home</a>
     <a href="News.php">News</a>
-    <a class="active" href="Categories.php">Categories</a>
+    <a href="Categories.php">Categories</a>
     <a href="Contact.php">Contact</a>
     <div class="login-container">
         <?php
-        if ($_SESSION['logged'] == false) {
-            echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
-        } else {
-            echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
-        }
+        include 'TopNav.php';
         ?>
     </div>
 </div>

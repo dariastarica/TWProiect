@@ -24,8 +24,8 @@ $_SESSION['logged'] = false;
         <input name="password" class="pass" type="password" align="center" placeholder="Password">
         <input type="submit" class="submit" align="center" value="Login"/>
         <div class="donthave" align="center">Don't have an account? Sign up!</div>
-        <button class="submit" onclick="window.location.href='SignUp.php'" align="center" value="Sign up!">Sign up</button>
     </form>
+    <button class="submit" onclick="window.location.href='SignUp.php'" align="center" value="Sign up!">Sign up</button>
 </div>
 
 <?php
@@ -61,8 +61,6 @@ if (($password == null || $username == null)&&$_SESSION['logged']!=false) {
         foreach ($errors as $key => $value) {
 
             echo "<script type='text/javascript'>alert('$value');</script>";
-
-
         }
         echo '</ul>';
     }

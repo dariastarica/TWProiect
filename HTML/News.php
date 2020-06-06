@@ -12,22 +12,17 @@ session_start();
     <title>News</title>
 </head>
     <body>
-        <div class="topnav">
-            <a href="index.php">Home</a>
-            <a class="active" href="News.php">News</a>
-            <a href="Categories.php">Categories</a>
-            <a href="Contact.php">Contact</a>
-            <div class="login-container">
-                <?php
-                if ($_SESSION['logged'] == false) {
-                    echo '<button type="button" onclick="location.href =\'Login.php\'">Login</button>';
-                } else {
-                    echo '<button type="button" onclick="location.href =\'AddEquation.php\'">Add Equation</button>';
-                }
-                ?>
-            </div>
+    <div class="topnav">
+        <a class="active" href="index.php">Home</a>
+        <a href="News.php">News</a>
+        <a href="Categories.php">Categories</a>
+        <a href="Contact.php">Contact</a>
+        <div class="login-container">
+            <?php
+            include 'TopNav.php';
+            ?>
         </div>
-
+    </div>
         <div class="main-section">
             <?php
             include 'DatabaseConnection.php';
