@@ -14,6 +14,6 @@ if (isset($_POST['login'])) {
     if (isset($_POST['logout'])) {
         $_SESSION['logged'] = false;
         trim($_SESSION['user_id']);
+        header("Refresh:0");
     }
-    // tre sa apesi de doua ori ca sa iesi
 

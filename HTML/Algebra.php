@@ -29,13 +29,13 @@ $_SESSION['category']="Algebra";
     <?php
     include 'DatabaseConnection.php';
     echo '<button type="button" onclick="location.href =\'AddEquation.php\'"> AddEq </button>';
+
     $sql="SELECT post_id, post_content, post_name, user_name, category FROM posts join users on posts.post_by=users.user_id where category='Algebra'";
     $statement1 = $pdoconnection->prepare($sql);
     $statement1->execute();
     if($statement1->rowCount()>0){
-    echo "<table><tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
+        echo "<table><tr><th>Equation</th><th>Description</th><th>User</th><th>Category</th></tr>";
     while($row=$statement1->fetch(PDO::FETCH_OBJ)){
-
         //var_dump($_SESSION['post_id']);
         echo '<tr>';
         echo '<td><a href="Comments.php?id='.$row->post_id.'">'.$row->post_content.'</a></td>';
@@ -43,6 +43,7 @@ $_SESSION['category']="Algebra";
         echo "<td>".$row->post_name."</td>";
         echo "<td>".$row->user_name."</td><td>".$row->category."</td>";
         echo '<td><button type="button" onclick="location.href =\'AddComment.php?id='.$row->post_id.'\'"> Add Comment </button></td></tr>';
+        echo '<td><button type="button" onclick="location.href =\'Exercises.php?id='.$row->post_id.'\'"> Exercises </button></td></tr>';
     }
     echo "</table>";
     }else{
