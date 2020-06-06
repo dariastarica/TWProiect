@@ -26,6 +26,15 @@ else {
     $result = $statement->execute();
     if ($result != null) {
         echo 'Exercise added!';
+        if($_SESSION['category']=="Algebra") {
+            header("Location: ./Algebra.php");
+        }else if($_SESSION['category']=="Calculus"){
+            header("Location: ./Calculus.php");
+        }else if($_SESSION['category']=="Geometry"){
+            header("Location: ./Geometry.php");
+        }else if($_SESSION['category']=="Trigonometry"){
+            header("Location: ./Trigonometry.php");
+        }
     } else {
         foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
 
