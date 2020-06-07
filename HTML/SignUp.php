@@ -20,21 +20,31 @@
 
 <?php
 include 'DatabaseConnection.php';
-$email = $_POST["email"];
-$password = $_POST["password"];
-$username = $_POST["username"];
+$username = $password = $email = "";
+if(isset($_POST["username"])&&isset($_POST["password"])&&isset($_POST["email"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $username = $_POST["username"];
+}
 $errors = array();
 
 if ($email == null || $password == null || $username == null) {
     $errors[] = 'These fields cannot be empty';
 } else {
     $getEmailStatementString = "SELECT * FROM users WHERE user_email = :emailParam";
+    //$getUserString = "SELECT * FROM users WHERE user_name = :nameParam";
     $statement = $pdoconnection->prepare($getEmailStatementString);
+    //$statement2 = $pdoconnection->prepare($getUserString);
     $statement->bindParam(":emailParam", $email);
+    //$statement->bindParam(":nameParam", $username);
     $statement->execute();
+    //$statement2->execute();
     if ($row = $statement->fetch() != null) {
-        $errors[] = 'User already registered';
-    } else {
+        echo "<script type='text/javascript'>alert('This email address is already in use!';</script>)";
+    } /*else if($row2 = $statement2->fetch()!= null) {
+        echo "<script type='text/javascript'>alert('This username is already in use!';</script>)";
+    }*/
+    else{
         $hashedPassword = sha1($password);
         $userRegisterStatementString = "INSERT into users (user_name, user_pass, user_email, user_date, user_level) 
                                 values (:username, :pass, :email, sysdate(),1)";
@@ -46,11 +56,11 @@ if ($email == null || $password == null || $username == null) {
         $result = $statement->execute();
         if ($result != null) {
             echo 'Registered';
-            header("Location: ./Login.php");
+            header("Location: ./index.php");
         } else {
-            foreach ($errors as $key => $value) /* walk through the array so all the errors get displayed */ {
+            foreach ($errors as $key => $value)  {
 
-                echo '<li>' . $value . '</li>'; /* this generates a nice error list */
+                echo '<li>' . $value . '</li>';
             }
             echo '</ul>';
         }
