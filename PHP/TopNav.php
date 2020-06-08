@@ -16,4 +16,3 @@ if (isset($_POST['login'])) {
         trim($_SESSION['user_id']);
         header("Refresh:0");
     }
-

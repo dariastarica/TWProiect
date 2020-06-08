@@ -58,7 +58,7 @@ session_start();
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/HTML/Maria.php">
+                <a target="_self" href="/PHP/Maria.php">
                     <img src="../images/maria.png" alt="Maria" width="600" height="400">
                 </a>
                 <div class="desc">

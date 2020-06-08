@@ -1,5 +1,6 @@
 <?php
 session_start();
+$postId= isset($_GET['id']) ? $_GET['id'] : '';
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,37 +26,10 @@ session_start();
     </div>
 </div>
 <div class="equation-view">
-    <?php
-    include 'DatabaseConnection.php';
-    $id=$_GET['id'];
-
-    $sql = "SELECT post_name, post_content from posts where post_id=:id";
-    $statement=$pdoconnection->prepare($sql);
-    $statement->bindParam(":id",$id);
-    $statement->execute();
-    while($row=$statement->fetch(PDO::FETCH_OBJ)){
-        echo $row->post_content;
-    }
-
-    echo '<br>';
-    echo '<button type="button" onclick="location.href =\'AddExercises.php?id='.$id.'\'"> Add Exercises </button>';
-
-    $sql="SELECT exercise_id, exercise_content,exercise_date, exercise_on_post_id FROM exercises where exercise_on_post_id=:id";
-    $statement = $pdoconnection->prepare($sql);
-    $statement->bindParam(":id",$id);
-    $statement->execute();
-    if($statement->rowCount()>0){
-        echo "<table><tr><th>Date</th><th>Exercises</th><th>User</th></tr>";
-        while($row=$statement->fetch(PDO::FETCH_OBJ)){
-            //var_dump($_SESSION['post_id']);
-            echo '<tr>';
-            echo '<td>'.$row->exercise_date.'</td>';
-            // $_SESSION['post_id']=$row->post_id;
-            echo "<td>".$row->exercise_content."</td>";
-        }
-        echo "</table>";
-    }
-    ?>
+    <form method="post" action="">
+        <label for="ex">Content</label><textarea id="ex"> </textarea>
+        <br/><button type="button" class="submit" value="Submit" onclick=sendData()>Add</button>
+    </form>
 </div>
 <div class="footer">
     <footer>
@@ -66,5 +40,27 @@ session_start();
         </div>
     </footer>
 </div>
+
+<script>
+    function sendData() {
+        var content = document.getElementById("ex").value;
+        var id = <?php echo $postId ?>
+
+        var creds = "content="+content+"&id="+id;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                //if(this.responseText === "SUCCESS") {
+                alert(this.responseText);
+
+                //}
+
+            }
+        };
+        xhttp.open("POST", "./AddExercisesController.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(creds);
+    }
+</script>
 </body>
 </html>

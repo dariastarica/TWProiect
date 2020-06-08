@@ -21,8 +21,9 @@ session_start();
         ?>
     </div>
 </div>
+
 <div class="quarter">
-    <a href ="../HTML/Calculus.php">
+    <a href ="Calculus.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -36,7 +37,7 @@ session_start();
     </a>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Algebra.php">
+    <a href ="Algebra.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -50,7 +51,7 @@ session_start();
     </a>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Geometry.php">
+    <a href ="Geometry.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
@@ -64,7 +65,7 @@ session_start();
     </a>
 </div>
 <div class="quarter">
-    <a href ="../HTML/Trigonometry.php">
+    <a href ="Trigonometry.php">
         <div class="quarter-content">
             <div class="imageBox">
                 <div class="imageInn">
