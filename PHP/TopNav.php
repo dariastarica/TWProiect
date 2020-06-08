@@ -10,7 +10,7 @@ if ($_SESSION['logged'] == false) {
                   </form>';
 } else {
     echo '<form action="" method="post"> 
-                    <input type="submit" name="logout" value="Log out"/>
+                    <input type="submit" name="logout" class="login-button" value="Log out"/>
                   </form>';//maria fa css la formul asta
 }
 if (isset($_POST['login'])) {
