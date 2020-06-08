@@ -66,3 +66,36 @@ td {
 equation-text{
     font-family: "Times New Roman", serif;
 }
+
+.input-fields{
+    border-radius: 5px;
+    border: 1.1px solid black;
+    height: 2em;
+    font-family: 'Roboto', sans-serif;
+}
+.input-fields:hover {
+    background-color: #303030;
+    color: white;
+    border: 1.1px solid white;
+}
+.fields {
+    padding-top: 2em;
+    padding-left: 1em;
+}
+.add-eq-btn{
+    color: 	#FFFFFF;
+    height: 2em;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border: none;
+    font-size: 1em;
+    background-color:#9ACD32;
+    border-radius: 5px;
+    font-weight: bold;
+    /*padding-bottom: 4px;*/
+    /*padding-top: 4px;*/
+}
+
+.add-eq-btn:hover{
+    background-color: #858585;
+}

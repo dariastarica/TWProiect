@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<
+
 </head>
 <body>
 <?php
@@ -60,7 +60,7 @@ if($statement1->rowCount()>0) {
         echo "<td>" . $row->post_name . "</td>";
         echo "<td>" . $row->user_name . "</td>";
         echo "<td>" . $row->category . "</td>";
-        echo '<td><button type="button" onclick="location.href =\'Exercises.php?id='.$row->post_id.'\'"> Exercises </button></td>';
+        echo '<td><button type="button" class="add-eq-btn" onclick="location.href =\'Exercises.php?id='.$row->post_id.'\'"> Exercises </button></td>';
         //echo '<td><button type="button" onclick="location.href =\'Exercises.php?id='.$row->post_id.'\'"> Exercises </button></td></tr>';
         echo '</tr>';
     }

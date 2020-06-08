@@ -30,10 +30,10 @@ $_SESSION['category']="Calculus";
     </div>
 </div>
 <div class="equation-view">
-    <form>
-        <input id="equationName" type="text" placeholder="Ecuation">
-        <input id="equationContent" type="text" placeholder="Description">
-        <button type="button" value="AddEq" onclick="sendEquationData()"> Add Equation</button>
+    <form class="fields">
+        <input id="equationName" class="input-fields" type="text" placeholder="Ecuation">
+        <input id="equationContent" class="input-fields" type="text" placeholder="Description">
+        <button type="button" value="AddEq" class="add-eq-btn" onclick="sendEquationData()"> Add Equation</button>
     </form>
     <script>
         function showCategory(str) {

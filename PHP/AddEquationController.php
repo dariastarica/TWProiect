@@ -4,7 +4,7 @@ include 'DatabaseConnection.php';
 
 $eqName = $_POST['name'];
 $eqContent = $_POST['content'];
-$username = $_SESSION['user_name'];
+$username = $_SESSION['user_id'];
 echo $username;
 
 $eqCategory = $_SESSION['category'];
