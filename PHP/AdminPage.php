@@ -48,6 +48,20 @@ delete useri
           xmlhttp.send();
       console.log("sent");
       }
+  function deleteUsers(userId) {
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+              if(this.responseText === "SUCCESS")
+                  location.reload();
+              }
+              //document.getElementById("usersList").innerHTML = this.responseText;
+          }
+      xmlhttp.open("POST","./DeleteUsers.php",true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("userId="+userId);
+      console.log("sent");
+  }
 
   showUsers();
 </script>
