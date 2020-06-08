@@ -1,7 +1,9 @@
+
+<!DOCTYPE html>
 <?php
 session_start();
+$_SESSION['category']="Trigonometry";
 ?>
-<!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
@@ -25,6 +27,11 @@ session_start();
     </div>
 </div>
 <div class="equation-view">
+    <form>
+        <input id="equationName" type="text" placeholder="Ecuation">
+        <input id="equationContent" type="text" placeholder="Description">
+        <button type="button" value="AddEq" onclick="sendEquationData()"> Add Equation</button>
+    </form>
     <script>
         function showCategory(str) {
             if (str == "") {
@@ -41,7 +48,38 @@ session_start();
                 xmlhttp.send();
             }
         }
+        function sendContent() {
+            var content = document.getElementById("exercise_content").value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                }
+            };
+            xmlhttp.open("POST","GetCategory.php?exercise_content="+content,true);
+            xmlhttp.send();
+        }
+        function sendEquationData() {
+            var name = document.getElementById("equationName").value;
+            var content = document.getElementById("equationContent").value;
+
+            var creds = "name=" + name + "&content=" + content;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    //if (this.responseText === "SUCCESS") {
+                    alert(this.responseText);
+                    location.reload();
+                    //}
+                }
+            };
+            xhttp.open("POST", "./AddEquationController.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(creds);
+        }
     </script>
+    <br>
+
     <br>
     <div id="txtHint"><b>Equations will be listed here...</b></div>
 </div>

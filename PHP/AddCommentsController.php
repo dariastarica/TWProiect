@@ -2,7 +2,7 @@
 session_start();
 include 'DatabaseConnection.php';
 
-$exerciseContent = $_POST['content'];
+$commentContent = $_POST['content'];
 $user = $_SESSION['user_id'];
 $postId=$_POST['id'];
 console.log($postId);
@@ -13,10 +13,10 @@ if ($exerciseContent == null) {
     $errors[] = 'These fields cannot be empty';
 }
 else {
-    $insertExString = "INSERT INTO exercises(exercise_content, exercise_by, exercise_date, exercise_on_post_id) 
+    $insertCommString = "INSERT INTO comments(comment_content, comment_by, comment_date, comment_on_post_id) 
                             VALUES (:content,:user_id,sysdate(),:post_id)";
-    $statement = $pdoconnection->prepare($insertExString);
-    $statement->bindParam(":content", $exerciseContent);
+    $statement = $pdoconnection->prepare($insertCommString);
+    $statement->bindParam(":content", $commentContent);
     $statement->bindParam(":user_id",$user);
     $statement->bindParam(":post_id", $postId);
     $result = $statement->execute();
@@ -26,3 +26,4 @@ else {
         echo 'NASPA';
     }
 }
+

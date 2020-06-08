@@ -1,49 +1,67 @@
+<!DOCTYPE html>
 <?php
 session_start();
-echo '<form method="post" action="">
-    Equation name: <input type="text" name="eq_name" />
-    Equation description: <textarea name="eq_content" /></textarea>
-    <input type="submit" value="Add Equation" />
- </form>';
-include 'DatabaseConnection.php';
+//$category=$_SESSION['Algebra'];
+?>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title> MEq </title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../CSS/Front+flex.css">
+</head>
+<body onload="javascript:showCategory('Algebra')">
+<div class="topnav">
+    <a class="active" href="index.php">Home</a>
+    <a href="News.php">News</a>
+    <a href="Categories.php">Categories</a>
+    <a href="Contact.php">Contact</a>
+    <div class="login-container">
+        <?php
+        include 'TopNav.php';
+        ?>
+    </div>
+</div>
 
-$eqName = $_POST['eq_name'];
-$eqContent = $_POST['eq_content'];
-$username = $_SESSION['user_name'];
-echo $username;
+<div>
+    <form>
+        <input id="equationName" type="text">
+        <input id="equationContent" type="text">
+        <button type="button" value="AddEq" onclick="sendData()"> Add Equation</button>
+    </form>
+</div>
 
-$eqCategory = $_SESSION['category'];
-echo $eqCategory;
-$errors = array();
+<div class="footer">
+    <footer>
+        <div class="footer-container">
+            <button type="button" onclick="location.href = 'People/Maria.php' ">Maria Istrate</button>
+            <button type="button" onclick="location.href = 'People/Daria.php' ">Daria Stărică</button>
+            <button type="button" onclick="location.href = 'People/Tudor.php' ">Tudor Mihăiuc</button>
+        </div>
+    </footer>
+</div>
 
-if ($eqContent == null || $eqName == null) {
-    $errors[] = 'These fields cannot be empty';
-}
-else {
+<script>
+    function sendEquationData() {
+        var name = document.getElementById("equationName").value;
+        var content = document.getElementById("equationContent").value;
 
-    $insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY, post_name) VALUES (:content,sysdate(),:userName,:cat,:description)";
-    $statement = $pdoconnection->prepare($insertEqString);
-    $statement->bindParam(":content", $eqName);
-    $statement->bindParam(":userName", $username);
-    $statement->bindParam(":cat", $eqCategory);
-    $statement->bindParam(":description", $eqContent);
-    $result = $statement->execute();
-    /*if ($result != null) {
-        echo 'Equation added!';
-        if($_SESSION['category']=="Algebra") {
-            header("Location: ./Algebra.php");
-        }else if($_SESSION['category']=="Calculus"){
-            header("Location: ./Calculus.php");
-        }else if($_SESSION['category']=="Geometry"){
-            header("Location: ./Geometry.php");
-        }else if($_SESSION['category']=="Trigonometry"){
-            header("Location: ./Trigonometry.php");
-        }
-    } else {
-        foreach ($errors as $key => $value) {/* walk through the array so all the errors get displayed / {
-
-            echo '<li>' . $value . '</li>'; / this generates a nice error list
-        }
-        echo '</ul>';
-    }*/
-}
+        var creds = "name=" + name + "&content=" + content;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.responseText === "SUCCESS") {
+                    window.location.replace("")
+                }
+            }
+        };
+        xhttp.open("POST", "./AddEquationController.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(creds);
+    }
+</script>
+</body>
+</html>
