@@ -44,6 +44,7 @@ else {
     Add Exercises: <textarea name="exercise_content" /></textarea>
     <input type="submit" value="Add exercise"/>
  </form>';*/
+echo '<td><button type="button" onclick="location.href =\'AddEquation.php\'"> Add Equation </button></td>';
 echo "<table>
 <tr>
 <th>Equation</th>

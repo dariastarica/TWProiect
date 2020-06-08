@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:PHP/SignUpController.php
 <?php
 include 'DatabaseConnection.php';
 $email = $_POST["email"];
@@ -33,7 +32,9 @@ if ($email == null || $password == null || $username == null) {
         }
     }
 }
-========
+
+?>
+
 <html>
 
 <head>
@@ -81,4 +82,4 @@ if ($email == null || $password == null || $username == null) {
 </body>
 
 </html>
->>>>>>>> origin/master:HTML/SignUp.php
+

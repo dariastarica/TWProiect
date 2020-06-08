@@ -13,6 +13,7 @@ $username = $_SESSION['user_name'];
 echo $username;
 
 $eqCategory = $_SESSION['category'];
+echo $eqCategory;
 $errors = array();
 
 if ($eqContent == null || $eqName == null) {
@@ -27,7 +28,7 @@ else {
     $statement->bindParam(":cat", $eqCategory);
     $statement->bindParam(":description", $eqContent);
     $result = $statement->execute();
-    if ($result != null) {
+    /*if ($result != null) {
         echo 'Equation added!';
         if($_SESSION['category']=="Algebra") {
             header("Location: ./Algebra.php");
@@ -41,8 +42,8 @@ else {
     } else {
         foreach ($errors as $key => $value) {/* walk through the array so all the errors get displayed / {
 
-            echo '<li>' . $value . '</li>'; / this generates a nice error list */
+            echo '<li>' . $value . '</li>'; / this generates a nice error list
         }
         echo '</ul>';
-    }
+    }*/
 }
