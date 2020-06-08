@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <?php
 session_start();
-$_SESSION['category']="Algebra";
+$_SESSION['category'] = "Algebra";
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +26,13 @@ $_SESSION['category']="Algebra";
     </div>
 </div>
 <div class="equation-view">
+
     <form>
         <input id="equationName" type="text" placeholder="Ecuation">
         <input id="equationContent" type="text" placeholder="Description">
         <button type="button" value="AddEq" onclick="sendEquationData()"> Add Equation</button>
     </form>
+
     <script>
         function showCategory(str) {
             if (str == "") {
@@ -39,38 +40,30 @@ $_SESSION['category']="Algebra";
                 return;
             } else {
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
+                xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById("txtHint").innerHTML = this.responseText;
                     }
                 };
-                xmlhttp.open("GET","GetCategory.php?q="+str,true);
+                xmlhttp.open("GET", "GetCategory.php?q=" + str, true);
                 xmlhttp.send();
             }
         }
-        function sendContent() {
-            var content = document.getElementById("exercise_content").value;
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
-                }
-            };
-            xmlhttp.open("POST","GetCategory.php?exercise_content="+content,true);
-            xmlhttp.send();
-        }
+
         function sendEquationData() {
             var name = document.getElementById("equationName").value;
             var content = document.getElementById("equationContent").value;
-
+            console.log(name);
+            console.log(content);
             var creds = "name=" + name + "&content=" + content;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    //if (this.responseText === "SUCCESS") {
+                    if (this.responseText === "SUCCESS") {
+                        location.reload();
+                    } else {
                         alert(this.responseText);
-                    location.reload();
-                    //}
+                    }
                 }
             };
             xhttp.open("POST", "./AddEquationController.php", true);

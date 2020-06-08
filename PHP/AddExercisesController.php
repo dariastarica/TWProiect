@@ -5,7 +5,6 @@ include 'DatabaseConnection.php';
 $exerciseContent = $_POST['content'];
 $user = $_SESSION['user_id'];
 $postId=$_POST['id'];
-console.log($postId);
 
 $errors = array();
 

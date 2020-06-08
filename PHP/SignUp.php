@@ -19,7 +19,7 @@
                         window.location.replace("./Login.php");
                     }
                     else{
-                        alert("ERROR, TRY AGAIN");
+                        alert(this.responseText);
                     }
                 }
             };

@@ -4,11 +4,15 @@ include 'DatabaseConnection.php';
 
 $eqName = $_POST['name'];
 $eqContent = $_POST['content'];
-$username = $_SESSION['user_name'];
-echo $username;
 
+$username = $_SESSION['user_id'];
 $eqCategory = $_SESSION['category'];
-echo $eqCategory;
+
+/*echo $eqName;
+echo $eqContent;
+echo $username;
+echo $eqCategory;*/
+
 $errors = array();
 
 if ($eqContent == null || $eqName == null) {
@@ -23,9 +27,11 @@ else {
     $statement->bindParam(":cat", $eqCategory);
     $statement->bindParam(":description", $eqContent);
     $result = $statement->execute();
+    //echo $result;
+    //echo $insertEqString;
     if ($result != null) {
         echo 'SUCCESS';
     } else {
-        echo "Error";
+        print_r($errors);
     }
 }

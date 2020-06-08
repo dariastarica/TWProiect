@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="24895e30-8999-4f8c-993a-7f76156f08c5" name="RemoteServer" url="http://localhost/tw">
-        <fileTransfer mountedRoot="D:\PHPtraining\xampp\htdocs\tw" accessType="MOUNT" port="0" />
+      <webServer id="af7d9412-5dd5-4bfe-b04a-118c885a2a89" name="localhost" url="http://localhost">
+        <fileTransfer mountedRoot="C:\xampp\htdocs" accessType="MOUNT" port="0" />
       </webServer>
     </option>
   </component>
