@@ -1,7 +1,3 @@
-<?php
-session_start();
-$_SESSION['logged'] = false;
-?>
 <html>
 
 <head>
@@ -9,6 +5,30 @@ $_SESSION['logged'] = false;
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Log in</title>
+
+    <script>
+        function login(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var creds = "username="+username+"&password="+password;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    if(this.responseText === "SUCCESS") {
+                        window.location.replace("./index.php");
+                    }
+                    else{
+                        alert("ERROR, TRY AGAIN");
+                    }
+
+                }
+            };
+            xhttp.open("POST", "./LoginController.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(creds);
+        }
+    </script>
+
 </head>
 
 <body>
@@ -18,53 +38,16 @@ $_SESSION['logged'] = false;
         }
     </script>
 <div class="main">
-    <form action="" METHOD="POST">
+    <form id="login">
         <p class="sign" align="center">Login</p>
-        <input name="username" class="un" type="text" align="center" placeholder="Username">
-        <input name="password" class="pass" type="password" align="center" placeholder="Password">
-        <input type="submit" class="submit" align="center" value="Login"/>
+        <input id="username" class="un" type="text" align="center" placeholder="Username">
+        <input id="password" class="pass" type="password" align="center" placeholder="Password">
+
         <div class="donthave" align="center">Don't have an account? Sign up!</div>
+        <br/><button type="button" class="submit" align="center" value="Submit" onclick="login();">Sign In</button>
     </form>
     <button class="submit" onclick="window.location.href='SignUp.php'" align="center" value="Sign up!">Sign up</button>
 </div>
-
-<?php
-
-include 'DatabaseConnection.php';
-
-$username = $password = "";
-if(isset($_POST["username"])&&isset($_POST["password"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-}
-$errors = array();
-
-if (($password == null || $username == null)&&$_SESSION['logged']!=false) {
-    $errors[] = 'These fields cannot be empty';
-} else {
-    $hashedPassword = sha1($password);
-    $getEmailStatementString = "SELECT user_name, user_pass,user_id FROM users WHERE user_name = :nameParam and user_pass = :passParam";
-    $statement = $pdoconnection->prepare($getEmailStatementString);
-    $statement->bindParam(":nameParam", $username);
-    $statement->bindParam(":passParam", $hashedPassword);
-    $statement->execute();
-    while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
-        $_SESSION['logged'] = true;
-        $_SESSION['user_id'] = $row->user_id;
-        echo $_SESSION['user_id'];
-        header("Location: ./index.php");
-    }
-    $errors[] = 'User not registered';
-}
-
-    if (isset($errors) && $_SESSION['logged']===false&&isset($_POST["username"])&&isset($_POST["password"])) {
-        foreach ($errors as $key => $value) {
-
-            echo "<script type='text/javascript'>alert('$value');</script>";
-        }
-        echo '</ul>';
-    }
-?>
 
 </body>
 
