@@ -13,6 +13,7 @@
             var creds = "username="+username+"&password="+password;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
+                // console.log(this.responseText.toString())
                 if (this.readyState === 4 && this.status === 200) {
                     if(this.responseText === "SUCCESS") {
                         window.location.replace("./index.php");

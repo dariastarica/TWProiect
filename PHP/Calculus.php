@@ -10,7 +10,10 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../CSS/Categories.css">
+<!--    <link rel="stylesheet" type="text/css" href="../CSS/TopNav.css">-->
     <link rel="stylesheet" type="text/css" href="../CSS/Front+flex.css">
+
 </head>
 <body onload="javascript:showCategory('Calculus')">
 <div class="topnav">

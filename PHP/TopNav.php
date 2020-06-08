@@ -1,7 +1,12 @@
+<style>
+    <?php
+        include '../CSS/TopNav.css';
+    ?>
+</style>
 <?php
 if ($_SESSION['logged'] == false) {
     echo '<form action="" method="post"> 
-                    <input type="submit" name="login" value="Login"/>
+                    <input type="submit" name="login" value="Login" class="login-button"/>
                   </form>';
 } else {
     echo '<form action="" method="post"> 
