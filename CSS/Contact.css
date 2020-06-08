@@ -1,61 +1,58 @@
-body {
-
-    font-family: 'Ubuntu', sans-serif;
-    margin: auto;
-
+.body{
+    background-color: hotpink;
 }
-/*///////////////////////TOPNAV/////////////////////////////*/
 
-/* Add a black background color to the top navigation */
-.main{
-    margin-left: auto;
-    margin-right: auto;
-}
 .topnav {
-    background-color: #FFF8DC;
+    background-color: #303030;
     overflow: hidden;
-    flex: 1;
+    text-align: center;
+    position: sticky;
 }
-
-/* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    color: 	#A0522D;
+    color: 	white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size:1.3em;
     display:flex;
 }
-
-/* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
     color: black;
-
 }
-
-/* Add a color to the active/current link */
 .topnav a.active {
-    background-color:#808000;
-    color: white;
-
+    color: gray;
+    /* border: white; */
 }
-
-.back-button{
-    color: #FFFFFF;
-    font-family: 'Ubuntu', sans-serif;
-    text-align: left;
+.topnav .login-container{
+    float: right;
+    padding-top: 4px;
+}
+.topnav .login-container button{
+    color: 	#FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
     padding: 6px;
     text-decoration: none;
     font-size: 17px;
     border:none;
     cursor:pointer;
-    margin-top: 3px;
+    margin-top: 5px;
     margin-right:5px;
     margin-bottom: 1px;
-    background-color:#808000;
+    background-color:#9ACD32;
     border-radius: 5px;
+
+}
+.topnav .login-container button:hover{
+    background: white;
+    color: black;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: auto;
 }
 
 div.gallery{

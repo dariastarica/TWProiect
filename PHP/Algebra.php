@@ -3,11 +3,13 @@
 session_start();
 $_SESSION['category'] = "Algebra";
 ?>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+
 <head>
     <title> MEq </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"/>
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>

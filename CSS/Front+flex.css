@@ -105,19 +105,19 @@ span.fade{
 }
 /*--------------TITLE END--------------*/
 /*--------------SLOGAN------------------*/
-.meq-description{
-    color: #858585; 
-    position: absolute; 
-    width: 25%; 
-    top: 10em;
-    left:50%;
-    right: auto;
-    text-align: right;
-    padding-right: 50px;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    /*padding: 20px;*/
-}
+/*.meq-description{*/
+/*    color: #858585; */
+/*    position: absolute; */
+/*    width: 25%; */
+/*    top: 10em;*/
+/*    left:50%;*/
+/*    right: auto;*/
+/*    text-align: right;*/
+/*    padding-right: 50px;*/
+/*    transform: translate(-50%,-50%);*/
+/*    width: 100%;*/
+/*    !*padding: 20px;*!*/
+/*}*/
 
 /*---------------SLOGAN END-------------*/
   /* Login */
@@ -241,9 +241,11 @@ span.fade{
       font-size: 50%
   }
 }
-@media screen and (max-width: 1000px) {
-    .topnav  {
-    margin: 0 auto; 
+@media screen and (max-width: 600px) {
+    .topnav a{
+        float: none;
+        width: 100%;
+        text-align: center;
     }
 }
 @media screen and (max-width:1000px){
