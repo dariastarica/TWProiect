@@ -99,3 +99,12 @@ equation-text{
 .add-eq-btn:hover{
     background-color: #858585;
 }
+.left{
+    float: left;
+    width: 30%;
+}
+.right{
+    float: left;
+
+    width: 70%;
+}

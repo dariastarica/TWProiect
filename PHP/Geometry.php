@@ -67,10 +67,11 @@ $_SESSION['category']="Geometry";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    //if (this.responseText === "SUCCESS") {
-                    alert(this.responseText);
-                    location.reload();
-                    //}
+                    if (this.responseText === "SUCCESS") {
+                        location.reload();
+                    } else {
+                        alert(this.responseText);
+                    }
                 }
             };
             xhttp.open("POST", "./AddEquationController.php", true);
