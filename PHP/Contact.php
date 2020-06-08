@@ -2,15 +2,18 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title> MEq </title>
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../CSS/Contact.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Front+flex.css">
+
 </head>
 
 <script>

@@ -3,10 +3,12 @@ session_start();
 $postId= isset($_GET['id']) ? $_GET['id'] : '';
 ?>
 <!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+
 <head>
     <title> MEq </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">

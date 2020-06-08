@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
 
 </head>
 <body>

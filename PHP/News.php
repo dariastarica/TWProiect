@@ -2,13 +2,14 @@
 <?php
 session_start();
 ?>
-<html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="../CSS/News.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <title>News</title>
 </head>
     <body>
