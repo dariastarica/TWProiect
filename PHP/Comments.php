@@ -28,6 +28,16 @@ session_start();
     <?php
     include 'DatabaseConnection.php';
     $id=$_GET['id'];
+
+    $sql = "SELECT post_name, post_content from posts where post_id=:id";
+    $statement=$pdoconnection->prepare($sql);
+    $statement->bindParam(":id",$id);
+    $statement->execute();
+    while($row=$statement->fetch(PDO::FETCH_OBJ)){
+        echo $row->post_content;
+    }
+    echo '<br>';
+
     $sql="SELECT comment_id, comment_content, user_name ,comment_date, comment_on_post_id FROM comments join users on comments.comment_by = users.user_id where comment_on_post_id=:id";
     $statement = $pdoconnection->prepare($sql);
     $statement->bindParam(":id",$id);
@@ -42,7 +52,6 @@ session_start();
             echo "<td>".$row->comment_content."</td>";
             trim($row->comment_content);
             echo "<td>".$row->user_name."</td>";
-
         }
         echo "</table>";
     }
