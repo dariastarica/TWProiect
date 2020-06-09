@@ -79,7 +79,7 @@ equation-text{
     border: 1.1px solid white;
 }
 .fields {
-    padding-top: 2em;
+    /*padding-top: 2em;*/
     padding-left: 1em;
 }
 .add-eq-btn{

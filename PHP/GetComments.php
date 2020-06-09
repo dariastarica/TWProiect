@@ -11,18 +11,19 @@ $statement = $pdoconnection->prepare($sql);
 
 $statement->bindParam(":postId", $postId);
 $statement->execute();
-if($_SESSION['logged'] == true) {
+if ($_SESSION['logged'] == true) {
     echo '<form>
         <input id="commentContent" class="input-fields" type="text" placeholder="Comment">
         <button type="button" class="add-eq-btn" value="AddComment" onclick="sendCommentData(' . $postId . ')"> Add Comment</button>
     </form>';
 }
 
-function processToApproxTime($floatHourValue){
+function processToApproxTime($floatHourValue)
+{
     $strVal = '';
-    if($floatHourValue >= 24){
+    if ($floatHourValue >= 24) {
         $strVal = floor($floatHourValue / 24) . ' days ago';
-    } else if($floatHourValue >= 1){
+    } else if ($floatHourValue >= 1) {
         $strVal = floor($floatHourValue) . ' hours ago';
     } else {
         $strVal = floor($floatHourValue * 60) . ' minutes ago';
@@ -31,13 +32,13 @@ function processToApproxTime($floatHourValue){
     return $strVal;
 }
 
-echo "<table>
+if ($statement->rowCount() > 0) {
+    echo "<table>
 <tr>
 <th>Comment</th>
 <th>Added at </th>
 <th>User</th>
 </tr>";
-if ($statement->rowCount() > 0) {
     while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         $dateText = processToApproxTime($row->comment_time);
 
@@ -48,6 +49,9 @@ if ($statement->rowCount() > 0) {
 
         echo '</tr>';
     }
+} else {
+    echo '<br>';
+    echo 'No comments added yet! Be the first to add one!';
 }
 echo "</table>";
 

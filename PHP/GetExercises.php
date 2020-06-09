@@ -33,13 +33,13 @@ function processToApproxTime($floatHourValue){
 
     return $strVal;
 }
+if ($statement->rowCount() > 0) {
 echo "<table>
 <tr>
 <th>Equation</th>
 <th>Added at </th>
 <th>User</th>
 </tr>";
-if ($statement->rowCount() > 0) {
     //dateText = processToApproxTime($row->comment_time);
     while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         echo '<tr>';
@@ -49,6 +49,9 @@ if ($statement->rowCount() > 0) {
 
         echo '</tr>';
     }
+}else{
+    echo '<br>';
+    echo 'No exercises added yet! Be the first to add one!';
 }
 echo "</table>";
 

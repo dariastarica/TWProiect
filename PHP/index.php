@@ -39,5 +39,5 @@
     </footer>
 </div>
 </body>
-<script src="../JS/Front.js"></script>
+
 </html>
