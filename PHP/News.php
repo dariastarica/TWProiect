@@ -25,24 +25,34 @@ session_start();
         </div>
     </div>
         <div class="main-section">
-            <?php
-            include 'DatabaseConnection.php';
-            $statementString = "SELECT post_name, post_content from posts order by post_date desc limit 1";
-            $statement = $pdoconnection->prepare($statementString);
-            $statement->execute();
-            $row= $statement->fetch(PDO::FETCH_OBJ);
-            $name=$row->post_name;
-            $content=$row->post_content;
-            ?>
             <div class="news-title">This week's equation</div>
-            <div class="mini-title">
-                <?php echo $content; ?>
+            <div class="mini-title" id = "miniTitle">
             </div>
-            <div class="equation eq-text">
-                <?php echo $name; ?>
+            <div class="equation eq-text" id="equationText">
             </div>
         </div>
 
+    <script>
+        let miniTitleDiv = document.getElementById("miniTitle");
+        let eqDiv = document.getElementById("equationText");
+
+        function callAsyncNews(URL){
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if(request.readyState === 4 && request.status === 200){
+                    // console.log(request.responseText);
+                    let json = JSON.parse(request.responseText);
+                    miniTitleDiv.textContent = json.name;
+                    eqDiv.textContent = json.content;
+                }
+            };
+
+            request.open('GET', URL);
+            request.send(null);
+        }
+
+        callAsyncNews('./NewsController.php');
+    </script>
     </body>
 </html>
 
