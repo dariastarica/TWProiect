@@ -23,6 +23,7 @@ th{
 }
 table{
     padding-left: 1%;
+    width: 100%;
     border-color: #303030;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -79,7 +80,6 @@ equation-text{
     border: 1.1px solid white;
 }
 .fields {
-    /*padding-top: 2em;*/
     padding-left: 1em;
 }
 .add-eq-btn{
@@ -122,7 +122,7 @@ equation-text{
     height: 50%;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     .left{
         float: none;
         width: 100%;
@@ -131,8 +131,32 @@ equation-text{
         float: none;
         width: 100%;
     }
+    .middle{
+        float: none;
+        width: 100%;
+    }
+    table{
+        width: 100%;
+        margin: auto;
+    }
+
+}
+@media screen and (min-width: 801px) and (max-width:1400px){
+    .left{
+        float: none;
+        width: 100%;
+    }
+    .right{
+        float: none;
+        width: 100%;
+    }
+    .middle{
+        float: none;
+        width: 100%;
+    }
     table{
         width: 70%;
+        margin: auto;
     }
 
 }
