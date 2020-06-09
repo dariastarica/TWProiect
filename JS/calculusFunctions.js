@@ -6,7 +6,7 @@ function showCategory(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
+                document.getElementById("txtHint").innerHTML = decodeURIComponent(this.responseText);
             }
         };
         xmlhttp.open("GET", "GetCategory.php?q=" + str, true);
@@ -19,7 +19,7 @@ function showExercises(postId) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             //alert(this.responseText);
-            document.getElementById("exercisesView").innerHTML = this.responseText;
+            document.getElementById("exercisesView").innerHTML = decodeURIComponent(this.responseText);
         }
     };
     xmlhttp.open("GET", "GetExercises.php?postId=" + postId, true);
@@ -31,7 +31,7 @@ function showComments(postId) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             //alert(this.responseText);
-            document.getElementById("commentView").innerHTML = this.responseText;
+            document.getElementById("commentView").innerHTML = decodeURIComponent(this.responseText);
         }
     }
     xmlhttp.open("GET", "GetComments.php?postId=" + postId, true);
@@ -42,7 +42,7 @@ function sendEquationData() {
     var name = document.getElementById("equationName").value;
     var content = document.getElementById("equationContent").value;
 
-    var creds = "name=" + name + "&content=" + content;
+    var creds = "name=" + encodeURIComponent(name) + "&content=" + content;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -60,7 +60,7 @@ function sendEquationData() {
 
 function sendExerciseData(id) {
     var content = document.getElementById("exerciseContent").value;
-    var creds = "content=" + content + "&id=" + id;
+    var creds = "content=" + encodeURIComponent(content) + "&id=" + id;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -78,7 +78,7 @@ function sendExerciseData(id) {
 
 function sendCommentData(id) {
     var content = document.getElementById("commentContent").value;
-    var creds = "content=" + content + "&id=" + id;
+    var creds = "content=" + encodeURIComponent(content)  + "&id=" + id;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
