@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../CSS/Front+flex.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Contact.css">
 </head>
 <body>
 <div class="topnav">
@@ -26,8 +27,9 @@
         ?>
     </div>
 </div>
-<div class="title-section">
-    <div class="fancy-title">Math Explorer</div>
+<div class="tel">
+    <img src="../images/resources/icons/phone.png" alt="Phone" width="100" height="100">
+    <h1>0743918418</h1>
 </div>
 <div class="footer">
     <footer>
@@ -39,5 +41,5 @@
     </footer>
 </div>
 </body>
-
 </html>
+

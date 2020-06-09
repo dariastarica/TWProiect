@@ -39,7 +39,7 @@ session_start();
     <div class="main">
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/HTMLDaria.html">
+                <a target="_self" href="Daria.php">
                     <img src="../images/daria.png" alt="Daria" width="600" height="400">
                 </a>
                 <div class="desc">
@@ -50,7 +50,7 @@ session_start();
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/HTML/Tudor.php">
+                <a target="_self" href="Tudor.php">
                     <img src="../images/tudor.png" alt="Tudor" width="600" height="400">
                 </a>
                 <div class="desc">
@@ -61,7 +61,7 @@ session_start();
         
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" href="/PHP/Maria.php">
+                <a target="_self" href="Maria.php">
                     <img src="../images/maria.png" alt="Maria" width="600" height="400">
                 </a>
                 <div class="desc">
