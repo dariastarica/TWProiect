@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['logged']==false){
+    header("Location: ./index.php");
+}
 ?>
 <html>
 
@@ -50,15 +53,16 @@ session_start();
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                if (this.responseText === "SUCCESS")
+                if (this.responseText === "SUCCESS") {
                     location.reload();
+                }
+                //document.getElementById("usersList").innerHTML = this.responseText;
             }
-            //document.getElementById("usersList").innerHTML = this.responseText;
+            xmlhttp.open("POST", "./DeleteUsers.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("userId=" + userId);
+            console.log("sent");
         }
-        xmlhttp.open("POST", "./DeleteUsers.php", true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("userId=" + userId);
-        console.log("sent");
     }
 
     function promoteUsers(userId) {
@@ -66,7 +70,6 @@ session_start();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 if (this.responseText === "SUCCESS") {
-
                     location.reload();
                 }
                 //alert(this.responseText);

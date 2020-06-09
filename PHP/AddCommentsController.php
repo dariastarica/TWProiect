@@ -7,10 +7,9 @@ $user = $_SESSION['user_id'];
 $postId=$_POST['id'];
 
 //echo $commentContent;
-$errors = array();
 
 if ($commentContent == null) {
-    $errors[] = 'These fields cannot be empty';
+    echo 'This field cannot be empty';
 }
 else {
     $insertCommString = "INSERT INTO comments(comment_content, comment_by, comment_date, comment_on_post_id) 
@@ -23,7 +22,7 @@ else {
     if ($result != null) {
         echo 'SUCCESS';
     } else {
-        print_r($errors);
+        echo 'ERROR ADDING YOUR COMMENT';
     }
 }
 
