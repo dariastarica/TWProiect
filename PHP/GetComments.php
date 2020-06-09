@@ -13,8 +13,8 @@ $statement->bindParam(":postId", $postId);
 $statement->execute();
 if($_SESSION['logged'] == true) {
     echo '<form>
-        <input id="commentContent" type="text" placeholder="Comment">
-        <button type="button" value="AddComment" onclick="sendCommentData(' . $postId . ')"> Add Comment</button>
+        <input id="commentContent" class="input-fields" type="text" placeholder="Comment">
+        <button type="button" class="add-eq-btn" value="AddComment" onclick="sendCommentData(' . $postId . ')"> Add Comment</button>
     </form>';
 }
 

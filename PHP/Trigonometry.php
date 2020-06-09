@@ -35,8 +35,6 @@ $_SESSION['category'] = "Trigonometry";
             <input id="equationContent" class="input-fields" type="text" placeholder="Description">
             <button type="button" value="AddEq" class="add-eq-btn" onclick="sendEquationData()"> Add Equation</button>
         </form>
-        <br>
-        <br>
         <div id="txtHint"><b>Equations will be listed here...</b></div>
 
     </div>

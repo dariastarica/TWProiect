@@ -20,7 +20,6 @@ echo "<table>
 <th>Equation</th>
 <th>Description</th>
 <th>User</th>
-<th>Category</th>
 </tr>";
 if($statement1->rowCount()>0) {
     while ($row = $statement1->fetch(PDO::FETCH_OBJ)) {
@@ -29,9 +28,8 @@ if($statement1->rowCount()>0) {
         // $_SESSION['post_id']=$row->post_id;
         echo "<td>" . $row->post_name . "</td>";
         echo "<td>" . $row->user_name . "</td>";
-        echo "<td>" . $row->category . "</td>";
-        echo '<td><button type="button" class="add-eq-btn" onclick="showExercises('.$row->post_id.')"> Exercises </button></td>';
         echo '<td><button type="button" class="add-eq-btn" onclick="showComments('.$row->post_id.')"> Comments </button></td>';
+        echo '<td><button type="button" class="add-eq-btn" onclick="showExercises('.$row->post_id.')"> Exercises </button></td>';
         echo '</tr>';
     }
 

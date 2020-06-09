@@ -16,8 +16,8 @@ $statement->execute();
 
 if($_SESSION['logged'] == true) {
     echo '<form>
-        <input id="exerciseContent" type="text" placeholder="Exercise">
-        <button type="button" value="AddEx" onclick="sendExerciseData(' . $postId . ')"> Add Exercise</button>
+        <input id="exerciseContent" class="input-fields" type="text" placeholder="Exercise">
+        <button type="button" class="add-eq-btn" value="AddEx" onclick="sendExerciseData(' . $postId . ')"> Add Exercise</button>
     </form>';
 }
 

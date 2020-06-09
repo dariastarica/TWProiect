@@ -101,14 +101,15 @@ equation-text{
 }
 .left{
     float: left;
+    padding-top: 3%;
     width: 33.3%;
+    text-align: center;
 }
 .middle{
     float: left;
     padding-top: 3%;
-    text-align: center;
     width: 33.3%;
-
+    text-align: center;
 }
 .right{
     float: left;

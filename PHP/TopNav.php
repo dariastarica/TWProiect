@@ -20,7 +20,7 @@ if ($_SESSION['logged'] == false) {
     $result=$statement->execute();
     $row= $statement->fetch(PDO::FETCH_OBJ);
     if($result != null & $row->user_level == 1){
-        echo '<a href="AdminPage.php">Admin</a>';
+        echo '<div href="AdminPage.php" class="login-button">Admin Control</div>';
     }
 }
 if (isset($_POST['login'])) {
