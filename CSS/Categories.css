@@ -101,10 +101,37 @@ equation-text{
 }
 .left{
     float: left;
-    width: 30%;
+    width: 33.3%;
+}
+.middle{
+    float: left;
+    padding-top: 3%;
+    text-align: center;
+    width: 33.3%;
+
 }
 .right{
     float: left;
+    padding-top: 3%;
+    width: 33.3%;
+    text-align: center;
+}
+.top{
+    float: left;
+    height: 50%;
+}
 
-    width: 70%;
+@media screen and (max-width: 600px){
+    .left{
+        float: none;
+        width: 100%;
+    }
+    .right{
+        float: none;
+        width: 100%;
+    }
+    table{
+        width: 70%;
+    }
+
 }
