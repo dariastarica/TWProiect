@@ -13,12 +13,12 @@ echo $eqContent;
 echo $username;
 echo $eqCategory;*/
 
-$errors = array();
 
 if ($eqContent == null || $eqName == null) {
-    $errors[] = 'These fields cannot be empty';
-}
-else {
+    echo 'These fields cannot be empty';
+} else if ($_SESSION['logged'] == false) {
+    echo 'You are not logged in!';
+} else {
 
     $insertEqString = "INSERT INTO posts(POST_CONTENT, POST_DATE, POST_BY, CATEGORY, post_name) VALUES (:content,sysdate(),:userName,:cat,:description)";
     $statement = $pdoconnection->prepare($insertEqString);
@@ -32,6 +32,6 @@ else {
     if ($result != null) {
         echo 'SUCCESS';
     } else {
-        print_r($errors);
+        echo 'ERROR ADDING YOUR EQUATION';
     }
 }

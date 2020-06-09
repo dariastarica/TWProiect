@@ -36,9 +36,9 @@
 <div class="main">
     <form action="" METHOD="POST">
         <p class="sign" align="center">Sign Up</p>
-        <input id="username" class="un " type="text" align="center" placeholder="Username">
-        <input id="password" class="pass" type="password" align="center" placeholder="Password">
-        <input id="email" class="un" type="email" align="centre" placeholder="Email">
+        <input id="username" class="un " type="text" align="center" placeholder="Username" required>
+        <input id="password" class="pass" type="password" align="center" placeholder="Password" required>
+        <input id="email" class="un" type="email" align="centre" placeholder="Email" required>
         <button type="button" class="submit" align="center" value="Submit" onclick="signUp();">Sign Up</button>
     </form>
 </div>

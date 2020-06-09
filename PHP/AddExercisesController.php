@@ -8,10 +8,9 @@ $postId=$_POST['id'];
 $user = $_SESSION['user_id'];
 $category = $_SESSION['category'];
 
-$errors = array();
 
 if ($exerciseContent == null) {
-    $errors[] = 'These fields cannot be empty';
+    echo 'This field cannot be empty';
 }
 else {
     $insertExString = "INSERT INTO exercises(exercise_content, exercise_by, exercise_date, exercise_on_post_id,ex_category) 
@@ -25,6 +24,6 @@ else {
     if ($result != null) {
         echo 'SUCCESS';
     } else {
-        echo 'NASPA';
+        echo 'ERROR ADDING YOUR EXERCISE';
     }
 }

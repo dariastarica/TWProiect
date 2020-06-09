@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +26,8 @@
         ?>
     </div>
 </div>
-<div class="title-section">
-    <div class="fancy-title">Math Explorer</div>
-</div>
+<img src="../images/resources/icons/phone.png" alt="Phone" width="100" height="100">
+<h1>0747855444</h1>
 <div class="footer">
     <footer>
         <div class="footer-container">
@@ -39,5 +38,5 @@
     </footer>
 </div>
 </body>
-
 </html>
+

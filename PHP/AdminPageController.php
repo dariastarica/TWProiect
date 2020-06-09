@@ -22,8 +22,9 @@ if($statement->rowCount()>0) {
         echo "<td>" . $row->user_email . "</td>";
         echo "<td>" . $row->user_date . "</td>";
         echo "<td>" . $row->user_level . "</td>";
-        echo '<td><button type="button" class="add-eq-btn" onclick="deleteUsers(' . $row->user_id. ')"> Ban User </button></td>';
-
+        echo '<td><button type="button" class="login-button" onclick="deleteUsers(' . $row->user_id. ')"> Ban User </button></td>';
+        echo '<td><button type="button" class="login-button" onclick="promoteUsers(' . $row->user_id. ')"> Promote User To Admin </button></td>';
+        echo '<td><button type="button" class="login-button" onclick="demoteUsers(' . $row->user_id. ')"> Demote User From Admin </button></td>';
         echo '</tr>';
     }
 

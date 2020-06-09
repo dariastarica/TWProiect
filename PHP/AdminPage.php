@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['logged']==false){
+    header("Location: ./index.php");
+}
 ?>
 <html>
 
@@ -12,7 +15,7 @@ session_start();
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="../CSS/Front+flex.css">
-</head>
+    </head>
 
 <body>
 <div class="topnav">
@@ -27,43 +30,78 @@ session_start();
     </div>
 </div>
 
-lista useri
-delete useri
-
 <div>
-    <div id="usersList"><b>Users will be listed here...</b></div>
+    <div id="usersList"=""><b>Users will be listed here...</b></div>
 </div>
 
 <script>
-  function showUsers() {
-          let xmlhttp = new XMLHttpRequest();
-      console.log("plm");
-          xmlhttp.onreadystatechange = function() {
-              if (this.readyState === 4 && this.status === 200) {
-                  console.log(this.responseText);
-                  document.getElementById("usersList").innerHTML = this.responseText;
-              }
-          };
-          xmlhttp.open("GET","./AdminPageController.php",true);
-          xmlhttp.send();
-      console.log("sent");
-      }
-  function deleteUsers(userId) {
-      let xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-          if (this.readyState === 4 && this.status === 200) {
-              if(this.responseText === "SUCCESS")
-                  location.reload();
-              }
-              //document.getElementById("usersList").innerHTML = this.responseText;
-          }
-      xmlhttp.open("POST","./DeleteUsers.php",true);
-      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttp.send("userId="+userId);
-      console.log("sent");
-  }
+    function showUsers() {
+        let xmlhttp = new XMLHttpRequest();
+        console.log("plm");
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                document.getElementById("usersList").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "./AdminPageController.php", true);
+        xmlhttp.send();
+        console.log("sent");
+    }
 
-  showUsers();
+    function deleteUsers(userId) {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.responseText === "SUCCESS") {
+                    location.reload();
+                }
+                //document.getElementById("usersList").innerHTML = this.responseText;
+            }
+            xmlhttp.open("POST", "./DeleteUsers.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("userId=" + userId);
+            console.log("sent");
+        }
+    }
+
+    function promoteUsers(userId) {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.responseText === "SUCCESS") {
+                    location.reload();
+                }
+                //alert(this.responseText);
+            }
+            //document.getElementById("usersList").innerHTML = this.responseText;
+        }
+
+        xmlhttp.open("POST", "./PromoteUser.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("userId=" + userId);
+        console.log("sent");
+    }
+
+    function demoteUsers(userId) {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.responseText === "SUCCESS") {
+
+                location.reload();
+            }
+            //alert(this.responseText);
+        }
+        //document.getElementById("usersList").innerHTML = this.responseText;
+    }
+
+    xmlhttp.open("POST", "./DemoteUser.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("userId=" + userId);
+    console.log("sent");
+    }
+    showUsers();
 </script>
 
 <div class="footer">

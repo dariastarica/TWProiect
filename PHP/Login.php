@@ -44,10 +44,10 @@
         <p class="sign" align="center">Login</p>
         <input id="username" class="un" type="text" align="center" placeholder="Username">
         <input id="password" class="pass" type="password" align="center" placeholder="Password">
-
-        <div class="donthave" align="center">Don't have an account? Sign up!</div>
-        <br/><button type="button" class="submit" align="center" value="Submit" onclick="login();">Sign In</button>
+        <button type="button" class="submit" align="center" value="Submit" onclick="login();">Sign In</button>
     </form>
+    <div class="donthave" align="center">Don't have an account? Sign up!</div>
+    <br>
     <button class="submit" onclick="window.location.href='SignUp.php'" align="center" value="Sign up!">Sign up</button>
 </div>
 
