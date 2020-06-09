@@ -14,17 +14,22 @@ $statement = $pdoconnection->prepare($sql);
 $statement->bindParam(":postId", $postId);
 $statement->execute();
 
+echo '<form>
+        <input id="exerciseContent" type="text" placeholder="Exercise">
+        <button type="button" value="AddEx" onclick="sendExerciseData('.$postId.')"> Add Exercise</button>
+    </form>';
+
+
 echo "<table>
 <tr>
 <th>Equation</th>
-<th>Description</th>
+<th>Added at </th>
 <th>User</th>
-<th>Category</th>
 </tr>";
 if ($statement->rowCount() > 0) {
     while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         echo '<tr>';
-        echo '<td><a href="Comments.php?id=' . $row->exercise_id . '">' . $row->exercise_content . '</a></td>';
+        echo '<td><a ' . $row->exercise_id . '">' . $row->exercise_content . '</a></td>';
         echo "<td>" . $row->exercise_date . "</td>";
         echo "<td>" . $row->user_name . "</td>";
 

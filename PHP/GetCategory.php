@@ -14,6 +14,7 @@ $statement1->bindParam(":cat",$category);
 $statement1->execute();
 
 $errors = array();
+
 echo "<table>
 <tr>
 <th>Equation</th>
@@ -24,18 +25,17 @@ echo "<table>
 if($statement1->rowCount()>0) {
     while ($row = $statement1->fetch(PDO::FETCH_OBJ)) {
         echo '<tr>';
-        echo '<td><a href="Comments.php?id=' . $row->post_id . '">' . $row->post_content . '</a></td>';
+        echo '<td><a ' . $row->post_id . '">' . $row->post_content . '</a></td>';
         // $_SESSION['post_id']=$row->post_id;
         echo "<td>" . $row->post_name . "</td>";
         echo "<td>" . $row->user_name . "</td>";
         echo "<td>" . $row->category . "</td>";
         echo '<td><button type="button" class="add-eq-btn" onclick="showExercises('.$row->post_id.')"> Exercises </button></td>';
-        //echo '<td><button type="button" onclick="location.href =\'Exercises.php?id='.$row->post_id.'\'"> Exercises </button></td></tr>';
+        echo '<td><button type="button" class="add-eq-btn" onclick="showComments('.$row->post_id.')"> Comments </button></td>';
         echo '</tr>';
     }
 
 }
-
 echo "</table>";
 
 ?>

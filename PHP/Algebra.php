@@ -3,13 +3,11 @@
 session_start();
 $_SESSION['category'] = "Algebra";
 ?>
-<html lang="en">
-
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <title> MEq </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"/>
-    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -40,16 +38,16 @@ $_SESSION['category'] = "Algebra";
         <br>
         <br>
         <div id="txtHint"><b>Equations will be listed here...</b></div>
+
     </div>
 </div>
+
+<div class="middle">
+    <div id="commentView"><b></b></div>
+</div>
+
 <div class="right">
-    <form>
-        <input id="exerciseContent" type="text" placeholder="Exercise">
-        <button type="button" value="AddEx" onclick="sendExerciseData()"> Add Exercise</button>
-    </form>
-
     <div id="exercisesView"><b></b></div>
-
 </div>
 
 <script>
@@ -59,29 +57,39 @@ $_SESSION['category'] = "Algebra";
 
         } else {
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
+            xmlhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     document.getElementById("txtHint").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET","GetCategory.php?q="+str,true);
+            xmlhttp.open("GET", "GetCategory.php?q=" + str, true);
             xmlhttp.send();
         }
     }
 
-    function showExercises(postId){
+    function showExercises(postId) {
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 //alert(this.responseText);
                 document.getElementById("exercisesView").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","GetExercises.php?postId=" + postId,true);
+        xmlhttp.open("GET", "GetExercises.php?postId=" + postId, true);
         xmlhttp.send();
-
     }
 
+    function showComments(postId) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                //alert(this.responseText);
+                document.getElementById("commentView").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "GetComments.php?postId=" + postId, true);
+        xmlhttp.send();
+    }
 
     function sendEquationData() {
         var name = document.getElementById("equationName").value;
@@ -102,10 +110,10 @@ $_SESSION['category'] = "Algebra";
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send(creds);
     }
-    function sendExerciseData() {
+
+    function sendExerciseData(id) {
         var content = document.getElementById("exerciseContent").value;
-        //var id=document
-        //var creds = "content=" + content + ;
+        var creds = "content=" + content + "&id=" + id;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
@@ -117,6 +125,24 @@ $_SESSION['category'] = "Algebra";
             }
         };
         xhttp.open("POST", "./AddExercisesController.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(creds);
+    }
+
+    function sendCommentData(id) {
+        var content = document.getElementById("commentContent").value;
+        var creds = "content=" + content + "&id=" + id;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if (this.responseText === "SUCCESS") {
+                    location.reload();
+                } else {
+                    alert(this.responseText);
+                }
+            }
+        };
+        xhttp.open("POST", "./AddCommentsController.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send(creds);
     }

@@ -5,11 +5,11 @@ include 'DatabaseConnection.php';
 $commentContent = $_POST['content'];
 $user = $_SESSION['user_id'];
 $postId=$_POST['id'];
-console.log($postId);
 
+//echo $commentContent;
 $errors = array();
 
-if ($exerciseContent == null) {
+if ($commentContent == null) {
     $errors[] = 'These fields cannot be empty';
 }
 else {
