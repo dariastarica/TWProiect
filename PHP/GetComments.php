@@ -11,12 +11,12 @@ $statement = $pdoconnection->prepare($sql);
 
 $statement->bindParam(":postId", $postId);
 $statement->execute();
-
-echo '<form>
+if($_SESSION['logged'] == true) {
+    echo '<form>
         <input id="commentContent" type="text" placeholder="Comment">
-        <button type="button" value="AddComment" onclick="sendCommentData('.$postId.')"> Add Comment</button>
+        <button type="button" value="AddComment" onclick="sendCommentData(' . $postId . ')"> Add Comment</button>
     </form>';
-
+}
 
 echo "<table>
 <tr>

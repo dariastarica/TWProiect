@@ -25,6 +25,6 @@ else {
     if ($result != null) {
         echo 'SUCCESS';
     } else {
-        echo 'NASPA';
+        print_r($errors);
     }
 }

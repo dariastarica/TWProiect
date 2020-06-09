@@ -14,11 +14,12 @@ $statement = $pdoconnection->prepare($sql);
 $statement->bindParam(":postId", $postId);
 $statement->execute();
 
-echo '<form>
+if($_SESSION['logged'] == true) {
+    echo '<form>
         <input id="exerciseContent" type="text" placeholder="Exercise">
-        <button type="button" value="AddEx" onclick="sendExerciseData('.$postId.')"> Add Exercise</button>
+        <button type="button" value="AddEx" onclick="sendExerciseData(' . $postId . ')"> Add Exercise</button>
     </form>';
-
+}
 
 echo "<table>
 <tr>
